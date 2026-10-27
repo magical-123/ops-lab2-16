@@ -1,0 +1,4 @@
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                                  
+LISTEN 0      4096       127.0.0.1:8080      0.0.0.0:*    users:(("enrolld",pid=47228,fd=7))      
+LISTEN 0      4096       127.0.0.1:9100      0.0.0.0:*    users:(("node_exporter",pid=47229,fd=4))
+LISTEN 0      4096       127.0.0.1:9090      0.0.0.0:*    users:(("prometheus",pid=47230,fd=7))   

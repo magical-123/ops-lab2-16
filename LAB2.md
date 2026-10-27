@@ -1,4 +1,4 @@
-# 实验 2 记录：第 <组号> 组
+# 实验 2 记录：第 16 组
 
 评分时依据本文件和 `runs/` 中的原始数据核对。本文件中的每一个数值，都须能在某个 `runs/<名字>/` 的文件中找到：表格用 `scripts/table.sh` 生成后粘贴，其他数值注明出处（例如“`runs/r1-pool4/red.csv` 第 6 阶段”）。不要只贴截图。将 `<填写>` 替换为本组的内容。
 
@@ -6,39 +6,61 @@
 
 ## 1. 基本信息
 
+本节和第 2 节由 A 于 **2026-10-27（北京时间）**在正式云主机采集。原始证据目录为 [`runs/task0-20261027T135748Z/`](runs/task0-20261027T135748Z/)，采样源码提交为 `d7ae8a402a98adc21d81ba58a015332affee77a0`；完整命令输出见 `meta.txt`。
+
 | 项 | 内容 |
 |---|---|
-| 小组 | 第 <组号> 组 |
-| 仓库地址 | <https://github.com/…> |
-| 主机 | <云厂商与规格名，例如某云的 2 vCPU 4 GB 通用型；或学校的虚拟机> |
-| CPU | <`lscpu` 的 Model name；vCPU 数；`lscpu -e` 里每个 CPU 对应的 CORE> |
-| 内存 | <`free -m` 的 total> |
-| 数据目录所在的盘 | <`findmnt -T data` 的 SOURCE 和 FSTYPE；磁盘类型，如“通用型 SSD 云盘 40 GB”> |
-| 操作系统与内核 | <`/etc/os-release` 的 PRETTY_NAME；`uname -r`> |
-| Go、Prometheus、node_exporter | <`go version`；`tools/prometheus --version` 第一行；`tools/node_exporter --version` 第一行> |
-| 分核 | enrolld：<如 1>；loadgen、Prometheus、node_exporter：<如 0> |
+| 小组 | 第 16 组 |
+| 仓库地址 | <https://github.com/magical-123/ops-lab2-16> |
+| 主机 | 华为云 ECS c6s.large.2，2 vCPU、标称 4 GiB，华东-上海一 |
+| CPU | Intel(R) Xeon(R) Gold 6278C CPU @ 2.60GHz；2 个逻辑 CPU；`lscpu -e` 中 CPU 0/1 均为 SOCKET 0、CORE 0 |
+| 内存 | `free -m` 的 Mem total 为 **3531 MiB**；以操作系统实际可见值为准 |
+| 数据目录所在的盘 | `/srv/lab2/data`，SOURCE=`/dev/vda1`、FSTYPE=`ext4`；整盘 `vda`，通用型 SSD（GPSSD）云盘 40 GiB，非 tmpfs |
+| 操作系统与内核 | Ubuntu 24.04.4 LTS；`6.8.0-136-generic` |
+| Go、Prometheus、node_exporter | `go version go1.27.3 linux/amd64`；Prometheus **3.13.4**、node_exporter **1.12.1** 的安装校验记录见`runs/task0-20261027T135748Z/tools-verification.txt`（工具下载在基线之后完成，未回写原始 meta） |
+| 分核 | 后续 enrolld：CPU **1**；loadgen、Prometheus、node_exporter：CPU **0**；任务 0 的 fsync 按指导书原命令运行，未额外绑核 |
+
+虚拟机呈现两个逻辑 CPU 共享同一 CORE 的 SMT 拓扑；这只是来宾系统可见拓扑，不能据此确定宿主机实际调度，也不能将 0/1 分工描述为两个独立物理核的完全隔离。后续 CPU 上限计算应使用实测每请求开销。
+
+构建及检查：`make build test fmt-check vet` 已通过；四个 Go 包测试通过。安装日志中的原始构建/测试输出见 `build-tools.log`，监控配置检查及版本见 `tools-verification.txt`。短暂服务检查也通过：`smoke-20261027T153552Z/smoke-targets.json` 中两个目标均为 up，GOMAXPROCS=1，三个服务仅监听回环地址；检查后均已停止。课程提供的 RED 查询 TODO 留给 B 完成。
 
 ## 2. 任务 0：基线
 
-`bin/enrolld -bench-fsync 2000` 连续运行三次的输出：
+`bin/enrolld -bench-fsync 2000` 连续三次的原始输出（分别见 `fsync-1.txt`、`fsync-2.txt`、`fsync-3.txt`）：
 
 ```text
-<粘贴三次的输出>
+fsync 次数 2000，总耗时 3.43 s，数据目录 data
+fsync 耗时（毫秒）：mean 1.706  p50 1.550  p90 1.975  p99 4.255  max 32.342
+按平均值推算，一个写者串行 fsync 每秒最多约 586 次（= 1000 / 1.706）
+
+fsync 次数 2000，总耗时 3.48 s，数据目录 data
+fsync 耗时（毫秒）：mean 1.728  p50 1.544  p90 2.062  p99 4.824  max 11.352
+按平均值推算，一个写者串行 fsync 每秒最多约 579 次（= 1000 / 1.728）
+
+fsync 次数 2000，总耗时 3.47 s，数据目录 data
+fsync 耗时（毫秒）：mean 1.725  p50 1.546  p90 2.007  p99 4.718  max 37.764
+按平均值推算，一个写者串行 fsync 每秒最多约 580 次（= 1000 / 1.725）
 ```
 
-按平均值计算，单个写者串行 fsync 每秒最多约 <填写> 次。三次之间相差多少？<填写>
+三次迭代数相同，平均 fsync 耗时为 `(1.706 + 1.728 + 1.725) / 3 = 1.719667 ms`，因此单个写者串行 fsync 推算上限约 **581.51 次/秒（约 582 次/秒）**。三次 mean 的极差为 **0.022 ms**，约占综合均值 **1.28%**。此推算仅基于 fsync 时间，未计每次 write、循环和后续 HTTP 服务开销，不能直接当成写接口实测 TPS。
 
-空载和运行 fsync 测试时各工具的读数（各观察 5 秒以上，填写典型值）：
+空载和 fsync 对照数据由 `python3 scripts/summarize-task0.py runs/task0-20261027T135748Z` 从原始日志计算，结果同时保存为 `summary.json`：
 
-| 工具与列 | 空载 | 运行 `-bench-fsync` 时 | 该列的含义 |
+| 工具与列 | 空载 | fsync 运行时 | 该列的含义 |
 |---|---|---|---|
-| `vmstat -w 1`：r、b | <填写> | <填写> | <填写> |
-| `vmstat -w 1`：us、sy、id、wa、st | <填写> | <填写> | <填写> |
-| `iostat -dx 1 <盘>`：w/s、wkB/s | <填写> | <填写> | <填写> |
-| `iostat -dx 1 <盘>`：w_await、f/s、f_await | <填写> | <填写> | <填写> |
-| `iostat -dx 1 <盘>`：aqu-sz、%util | <填写> | <填写> | <填写> |
+| `vmstat -w 1`：r、b | 0.08、0.08 | 1.93、0.57 | 采样瞬间可运行的进程数、不可中断睡眠的进程数（常与 I/O 等待有关） |
+| `vmstat -w 1`：us、sy、id、wa、st | 0.58%、0.67%、99.00%、0.08%、0.00% | 1.36%、6.57%、48.36%、44.29%、0.00% | 整机用户态、内核态、空闲、I/O 等待及虚拟 CPU 被宿主机占走的时间比例 |
+| `iostat -dx 1 vda`：w/s、wkB/s | 0.58、9.33 | 1775.29、9711.14 | 块设备每秒完成写请求数、每秒写入量（KiB/s） |
+| `iostat -dx 1 vda`：w_await、f/s、f_await | 0.857 ms、0.33/s、0.000 ms | 0.535 ms、1182.29/s、0.054 ms | 写请求平均完成耗时、每秒 flush 请求数、flush 请求平均完成耗时；耗时包含队列等待 |
+| `iostat -dx 1 vda`：aqu-sz、%util | 0.000、0.03% | 1.014、94.17% | 平均未完成 I/O 数（含处理中），有 I/O 进行的设备忙碌时间比例 |
 
-运行 fsync 测试时，CPU 是否繁忙？哪几列表明存在等待？<填写>
+采样口径：空载取 **UTC 13:58:00–13:58:11** 的 12 个一秒报告；负载取 `fsync-extended` 的 **UTC 13:58:24–13:58:37** 的 14 个报告。已排除每个工具的首份开机累计报告及负载起止边界区间，原始日志完整保留。率、CPU 百分比与队列值为等时长采样的算术均值；`w_await` 按各秒 `w/s` 加权，`f_await` 按 `f/s` 加权，避免空载无 I/O 的零值稀释延迟。空载仅 7 个写请求，延迟不具代表性，flush 延迟显示 0 也受工具精度限制。脚本另保留各秒算术均值供核查。CPU 原始整数百分比四舍五入后相加可能略偏离 100%。
+
+指导书的 5000 次运行持续 **8.51 秒**（见 `fsync5000-bench.txt` 与 `load-windows.tsv`）；为充分观察，另外明确标注了 **9404 次**的延长运行，持续 **15.90 秒**，没有把结束后的空载混入负载统计。三次 2000 次的基线仍独立保留，不与延长运行混算。
+
+fsync 时整机 `us+sy` 约 **7.93%**，CPU 并不繁忙；`wa≈44.29%`、`b` 出现及 `aqu-sz≈1.01` 表明存在 I/O 等待。`%util≈94.17%` 说明设备大部分时间有请求在处理，不能单独证明云盘已达吞吐上限。`r` 是瞬时值，偶见较高值也不能单独判定 CPU 饱和。应用 fsync 包含文件系统、日志和块层操作，衡量对象不同于单个设备 write/flush 的 await；几个耗时无需相等。
+
+原始证据完整性：在仓库根目录运行 `find runs/task0-20261027T135748Z -name 'SHA256SUMS*' -exec sha256sum -c {} \;`；派生汇总重新生成后应与 `summary.json` 一致。采集脚本见 `scripts/task0-baseline.sh`，使用新时间戳目录并拒绝覆盖已有运行。
 
 ## 3. 任务 1：指标流水线
 
@@ -151,7 +173,7 @@ W2 的到达率：<填写>
 
 **问题 2：利用率不等于饱和。** R1 达到上限时，enrolld 所在核的 CPU 利用率是多少？哪个数值最先表明资源已经饱和？R2 中 CPU 利用率接近 100% 时，内核层的 `procs_running_avg`、`cpu_psi_some`、`cpu_wait_threads` 和 Go 运行时层的 `sched_wait_p99_ms` 分别如何变化？为什么内核层几乎观察不到排队，排队发生在哪里？这与 L-06 第 16、17 页 Tomcat 的线程池有何相同之处？最后用 Little's Law 核对：从 R1 选取三个阶段，用 `server_rps × server_mean_ms` 计算在途请求数，并与 `inflight_avg` 比较；W 为什么必须用平均值而不能用 p99？哪个阶段不一致，原因是什么？
 
-<填写>
+待 C 提交 R1/R2 后由 A 完成定量分析；证据需求与 Little 定律核对框架见 [`docs/leader-handoff.md`](docs/leader-handoff.md)。当前没有运行 R1/R2，未预填结论。
 
 **问题 3：持久性以延迟为代价。** W1 实测的最大 TPS 与 1000 ÷ fsync 平均耗时相比如何？W1 达到上限时 CPU、内存、磁盘的指标各是多少，哪几列表明磁盘饱和？应用测得的 `fsync_mean_ms` 与 `disk_w_await_ms`、`disk_f_await_ms` 为什么不同？一次 fsync 大约对应几次写和几次 flush？W1 与 W2 在 `disk_util` 相近时吞吐量相差多少，`%util` 接近 100% 能否说明磁盘已经饱和？组提交的 `batch_mean` 如何随负载变化，低负载时是否有收益，本组的预测是否正确？W3 快了多少，代价是什么？选课记录应采用哪一种方式，在什么条件下 interval 可以接受？
 
@@ -165,7 +187,7 @@ W2 的到达率：<填写>
 
 | 选做 | 完成情况与证据 |
 |---|---|
-| O1 内存与 GC | <未做 / 预测、`runs/` 目录、结论> |
+| O1 内存与 GC | 尚未执行；等待必做压测结束后的独占窗口。测前计划见 [`docs/A-O1-plan.md`](docs/A-O1-plan.md)。 |
 | O2 网络 | <未做 / 两台主机的规格与拓扑、`runs/` 或日志、结论> |
 | O3 告警与看板 | <未做 / 规则文件、触发记录、看板说明> |
 | O4 迁移到小组项目 | <未做 / 仓库链接、测了哪个资源、结论> |
@@ -176,4 +198,4 @@ W2 的到达率：<填写>
 
 | GitHub 用户名 | 负责的部分 |
 |---|---|
-| <用户名> | <填写> |
+| magical-123 | A（组长）：环境与任务 0；问题 2、O1 待前置实验完成；仓库和主机协调。其余四位 GitHub 用户名由 E 汇总补入。 |
