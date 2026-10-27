@@ -1,14 +1,14 @@
 # 第 16 组：组长 A 的环境与实验交接草稿
 
-A 已完成任务 0，证据目录为 `runs/task0-20261027T135748Z/`，报告第 1–2 节已填写。短暂服务检查中两个 Prometheus targets 均为 up，enrolld 的 GOMAXPROCS=1；检查后全部进程已停止，目前没有 loadgen 或正式实验在运行。B 可在成员登录权限配置好后接手。
+A 已完成任务 0，证据目录为 `runs/task0-20261027T135748Z/`，报告第 1–2 节已填写。短暂服务检查中两个 Prometheus targets 均为 up，enrolld 的 GOMAXPROCS=1；检查后全部进程已停止，目前没有 loadgen 或正式实验在运行。四名成员的普通 Linux 账号与共享目录权限已配置；B 应先用本人私钥验证登录后接手。
 
 ## 环境与访问约定
 
 - 正式实验目录：`/srv/lab2`；桌面仓库用于编辑和同步，正式性能数据在云主机上采集。
 - 主机：华为云 ECS，Ubuntu，2 vCPU、4 GiB 内存。操作系统、内核、CPU 拓扑、工具版本以任务 0 的实际输出为准。
 - 分核方案：enrolld 使用 CPU `1`；loadgen、Prometheus、node_exporter 使用 CPU `0`。启动前用 `lscpu -e` 核对可用 CPU 与 CORE；如共享物理核或虚拟机未暴露真实拓扑，照实写入报告。
-- 正式服务数据目录为 `/srv/lab2/data`，必须位于真实块设备；Prometheus 时序数据按课程要求放在 `/dev/shm/lab2-prom`，重启会丢失。
-- SSH 只使用个人密钥。仓库邀请已由组长完成。Linux 账号安排与 `.pub` 公钥尚待收齐，当前尚未新建组员 Linux 账号，不能假定成员已经可登录。成员只提交公钥，私钥留在自己的电脑。
+- 正式服务数据目录为 `/srv/lab2/data`，必须位于真实块设备；Prometheus 时序数据按课程要求放在 `/dev/shm/lab2-prom-$(id -un)`，重启会丢失。
+- SSH 只使用个人密钥。仓库邀请已由组长完成。四名成员已分别配置普通 Linux 账号；组长私下分发用户名与公钥对应表，每人须用本人私钥验证登录。成员只提交公钥，私钥留在自己的电脑。
 - 监控及实验接口保持监听本机地址，通过 SSH 隧道访问。不要为查看监控而开放公网 8080、9090、9100。
 
 成员账号和公钥配置好后，可在自己电脑的 PowerShell 建立隧道。先替换账号、IP 和本地私钥路径：
@@ -38,7 +38,7 @@ ssh -N -o ExitOnForwardFailure=yes -o IdentitiesOnly=yes -i "$env:USERPROFILE\.s
 
 ## B 接手的启动命令
 
-目前这些进程已停止；从仓库根目录分别启动。以下操作应由当前独占主机的实验负责人执行。组员账号配置时还需一并安排共享目录与所需权限，不要共享组长私钥。
+目前这些进程已停止；从仓库根目录分别启动。以下操作应由当前独占主机的实验负责人执行。共享组与目录权限已配置。每轮负责人用自己的账号启动 enrolld，并用同一账号运行 run.sh；交接前先停止自己启动的服务和监控。
 
 终端 A：
 
@@ -52,7 +52,7 @@ taskset -c 1 bin/enrolld
 ```bash
 cd /srv/lab2
 taskset -c 0 tools/node_exporter --web.listen-address=127.0.0.1:9100 > data/node_exporter.log 2>&1 &
-taskset -c 0 tools/prometheus --config.file=deploy/prometheus.yml --storage.tsdb.path=/dev/shm/lab2-prom --web.listen-address=127.0.0.1:9090
+taskset -c 0 tools/prometheus --config.file=deploy/prometheus.yml --storage.tsdb.path=/dev/shm/lab2-prom-$(id -un) --web.listen-address=127.0.0.1:9090
 ```
 
 终端 C：
@@ -70,7 +70,7 @@ curl -fsS 127.0.0.1:9090/api/v1/targets
 
 主机顺序为 **A 任务 0 → B 指标基线 → C 读路径 → D 写路径 → 选做窗口**。当前操作者完成后明确交接；其他人可以准备代码、预测和草稿，但不要同时启动 loadgen、改服务参数或清理监控数据。
 
-交接时提供：仓库提交号、工作目录、当前进程及启动参数、CPU 绑定、`SLO`、数据目录、已保存的 `runs/` 目录及尚需重查的指标。写路径使用 `SLO=0.02`；回到读路径前执行 `unset SLO`。重启 Prometheus 或清理 `/dev/shm/lab2-prom` 前，先确认所有需要的重查询结果都已保存。
+交接时提供：仓库提交号、工作目录、当前进程及启动参数、CPU 绑定、`SLO`、数据目录、已保存的 `runs/` 目录及尚需重查的指标。写路径使用 `SLO=0.02`；回到读路径前执行 `unset SLO`。重启 Prometheus 或清理 `/dev/shm/lab2-prom-$(id -un)` 前，先确认所有需要的重查询结果都已保存。
 
 ## A 的问题 2：等待 R1/R2 实测后完成
 
@@ -103,5 +103,14 @@ O1 在必做压测结束、独占主机的选做窗口运行。先保存预测�
 - `LAB2.md` 的每个数值都要追溯到 `runs/`。正式实验的表格用 `scripts/table.sh` 生成，不能改写 `scripts/run.sh` 的原始输出；查询修正只按课程提供的 `scripts/requery.sh` 重新生成相应数据。
 - 不提交 `bin/`、`tools/`、`data/`，也不提交任何密钥、密码、主机公网 IP。连接信息另行私下保管，文档统一使用 `<公网IP>` 占位。
 - 各人先在自己的草稿或分支写作，由 E 集中合并；不要覆盖他人的实验目录。公开报告成员栏只需 GitHub 用户名。
-- 仓库邀请已完成；后续由 E 补齐报告中的 GitHub 用户名。SSH 公钥收齐后配置各自 Linux 账号并验证登录。仓库权限与 Linux 登录权限是两套配置。
+- 仓库邀请已完成；后续由 E 补齐报告中的 GitHub 用户名。四把 SSH 公钥已安装到独立 Linux 账号；成员仍需在自己的电脑上验证实际登录。仓库权限与 Linux 登录权限是两套配置。
 - 主机及复现所需工具保留到现场验收结束；最终报告由 E 汇总、A 验收后，再记录评分提交的完整 40 位哈希。
+
+## 独立账号的目录与交接规则
+
+- 各成员属于共享组 `lab2`，可编辑 `/srv/lab2` 的代码和报告、执行编译、写入 `data/` 及创建自己的 `runs/<新名字>/`。账号为普通用户，系统管理操作由组长处理。
+- `runs/` 父目录设置 setgid 和 sticky bit；新实验目录默认给其他成员只读权限，已完成的任务 0 原始数据保持只读。由生成该次运行的本人进行官方 requery；其他人修改查询应先协调，不能直接改别人的证据。
+- `scripts/run.sh` 需要对 enrolld 的 PID 执行 `kill -0`，普通账号跨用户会失败。所以同一轮的 enrolld 与采集必须由同一账号运行。上一位停止自己的进程，下一位在本人账号重新启动。
+- Prometheus 使用每个负责人自己的 `/dev/shm/lab2-prom-$(id -un)`。交接前保存 CSV 并完成必要重查询，再停止旧实例；不要尝试写另一位成员的 TSDB，也不要在导出前清理旧数据。
+- 当前 `data/enroll.log` 已给共享组写权限；程序明确以 `0644` 创建新文件，因此若按写路径步骤删除并重建该日志，创建者应在下一位接手前运行 `chmod g+rw data/enroll.log`。默认 ACL/umask 不能强行补上程序明确移除的组写位。
+- 每人的 Git 已仅信任 `/srv/lab2` 这个共享仓库。用各自 GitHub 身份提交代码；GitHub 推送认证与服务器 SSH 登录是两套配置，服务器登录成功不会自动获得 GitHub 推送凭据。

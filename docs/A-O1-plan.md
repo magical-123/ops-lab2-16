@@ -22,7 +22,7 @@ GEN_CPUS=0 scripts/run.sh o1-gogc100 -url 'http://127.0.0.1:8080/api/report?mb=4
 # 下一次把运行名换为 o1-gogc400，其他负载参数不变。
 ```
 
-运行前确认 B 已完成正确的 RED 查询；O1 需要使用 `/api/report` 对应的 route。保留 `run.sh` 的原始输出，不手改。Prometheus/node_exporter 继续仅监听回环地址，Prometheus 数据保存在 `/dev/shm/lab2-prom`。
+运行前确认 B 已完成正确的 RED 查询；O1 需要使用 `/api/report` 对应的 route。保留 `run.sh` 的原始输出，不手改。Prometheus/node_exporter 继续仅监听回环地址，Prometheus 数据保存在 `/dev/shm/lab2-prom-$(id -un)`。
 
 从每次 `metrics-start.txt`、`metrics-end.txt` 计算 `go_gc_cycles_total`、`go_gc_cpu_seconds_total` 的增量；二者均在同一次进程内做差。结合采样期间 RSS 的均值/峰值和客户端 p99、完成吞吐、错误率、dropped 共同判断，不跨重启比较累计值，也不只比较结束时 RSS。需要从 Prometheus 补查的 RSS 数据必须在 TSDB 清理或主机重启前导出保存。
 
