@@ -85,10 +85,10 @@ enroll_commit_batch_size_sum 0
 enroll_commit_batch_size_count 0
 # HELP process_cpu_seconds_total 进程累计用掉的 CPU 时间（user + system，秒）
 # TYPE process_cpu_seconds_total counter
-process_cpu_seconds_total 0.081201
+process_cpu_seconds_total 0.20552199999999998
 # HELP process_resident_memory_bytes 进程真正占用的物理内存 RSS（字节）
 # TYPE process_resident_memory_bytes gauge
-process_resident_memory_bytes 1.2546048e+07
+process_resident_memory_bytes 1.3172736e+07
 # HELP process_open_fds 打开的文件描述符数（含连接）
 # TYPE process_open_fds gauge
 process_open_fds 11
@@ -97,7 +97,7 @@ process_open_fds 11
 process_threads 6
 # HELP process_cpu_wait_seconds_total 进程的线程在运行队列里等 CPU 的累计时间（秒），取自各线程的 /proc/self/task/*/schedstat；它的速率是平均有几个线程在等核，是 CPU 饱和的直接证据
 # TYPE process_cpu_wait_seconds_total counter
-process_cpu_wait_seconds_total 0.06769598200000002
+process_cpu_wait_seconds_total 0.180512736
 # HELP go_goroutines goroutine 数
 # TYPE go_goroutines gauge
 go_goroutines 7
@@ -106,29 +106,29 @@ go_goroutines 7
 go_gomaxprocs 1
 # HELP go_gc_cycles_total 完成的 GC 次数
 # TYPE go_gc_cycles_total counter
-go_gc_cycles_total 2
+go_gc_cycles_total 5
 # HELP go_sched_latencies_seconds goroutine 可以运行但在等执行线程（等 CPU）的时间；运行时的桶比这里细，换算时整桶归入不小于它上沿的那个桶，_sum 按每个桶的下沿估计
 # TYPE go_sched_latencies_seconds histogram
-go_sched_latencies_seconds_bucket{le="1e-05"} 47
-go_sched_latencies_seconds_bucket{le="5e-05"} 47
-go_sched_latencies_seconds_bucket{le="0.0001"} 47
-go_sched_latencies_seconds_bucket{le="0.0005"} 86
-go_sched_latencies_seconds_bucket{le="0.001"} 86
-go_sched_latencies_seconds_bucket{le="0.002"} 86
-go_sched_latencies_seconds_bucket{le="0.005"} 86
-go_sched_latencies_seconds_bucket{le="0.01"} 86
-go_sched_latencies_seconds_bucket{le="0.02"} 86
-go_sched_latencies_seconds_bucket{le="0.05"} 86
-go_sched_latencies_seconds_bucket{le="0.1"} 86
-go_sched_latencies_seconds_bucket{le="0.2"} 86
-go_sched_latencies_seconds_bucket{le="0.5"} 86
-go_sched_latencies_seconds_bucket{le="1"} 86
-go_sched_latencies_seconds_bucket{le="+Inf"} 86
-go_sched_latencies_seconds_sum 0.013417728
-go_sched_latencies_seconds_count 86
+go_sched_latencies_seconds_bucket{le="1e-05"} 126
+go_sched_latencies_seconds_bucket{le="5e-05"} 128
+go_sched_latencies_seconds_bucket{le="0.0001"} 128
+go_sched_latencies_seconds_bucket{le="0.0005"} 231
+go_sched_latencies_seconds_bucket{le="0.001"} 234
+go_sched_latencies_seconds_bucket{le="0.002"} 235
+go_sched_latencies_seconds_bucket{le="0.005"} 235
+go_sched_latencies_seconds_bucket{le="0.01"} 235
+go_sched_latencies_seconds_bucket{le="0.02"} 235
+go_sched_latencies_seconds_bucket{le="0.05"} 235
+go_sched_latencies_seconds_bucket{le="0.1"} 235
+go_sched_latencies_seconds_bucket{le="0.2"} 235
+go_sched_latencies_seconds_bucket{le="0.5"} 235
+go_sched_latencies_seconds_bucket{le="1"} 235
+go_sched_latencies_seconds_bucket{le="+Inf"} 235
+go_sched_latencies_seconds_sum 0.037340992
+go_sched_latencies_seconds_count 235
 # HELP go_gc_cpu_seconds_total GC 用掉的 CPU 时间估计（秒）
 # TYPE go_gc_cpu_seconds_total counter
-go_gc_cpu_seconds_total 0.000786855
+go_gc_cpu_seconds_total 0.00195367
 # HELP go_heap_objects_bytes 堆上对象占用的字节数（含尚未回收的）
 # TYPE go_heap_objects_bytes gauge
-go_heap_objects_bytes 1.263312e+06
+go_heap_objects_bytes 2.345024e+06
