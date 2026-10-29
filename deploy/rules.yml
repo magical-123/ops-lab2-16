@@ -1,0 +1,10 @@
+groups:
+  - name: enrolld-slo
+    rules:
+      - alert: EnrolldReadSLOFastBurn
+        expr: (sum(rate(http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.05"}[5m])) / sum(rate(http_requests_total{route="/api/courses/{id}"}[5m]))) < 0.856
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: Read path SLO burn rate exceeds 14.4x

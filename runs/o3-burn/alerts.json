@@ -1,0 +1,1 @@
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"EnrolldReadSLOFastBurn","severity":"critical"},"annotations":{"summary":"Read path SLO burn rate exceeds 14.4x"},"state":"firing","activeAt":"2026-10-29T12:43:03.283539458Z","value":"0e+00"}]}}
