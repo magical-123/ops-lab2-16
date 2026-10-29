@@ -1,15 +1,15 @@
 名字: r2-pool40
-开始: 2026-10-29T11:33:19+08:00
+开始: 2026-10-29T22:56:40+08:00
 主机: Linux 6.8.0-136-generic x86_64
 CPU: 2 个逻辑核；Intel(R) Xeon(R) Gold 6278C CPU @ 2.60GHz
-内存: 3531 MiB，available 2912 MiB
+内存: 3531 MiB，available 2607 MiB
 数据目录: data → /dev/vda1（ext4），统计的磁盘: vda
-enrolld: pid 473863，绑定的核 1
+enrolld: pid 620177，绑定的核 1
 loadgen: 绑定的核 0
 接口: /api/courses/{id}；SLO 阈值 0.05s
 promsteps 变量: route=/api/courses/{id} slo=0.05 cpus=1 disk=vda
-仓库提交: e925c69，未提交的改动 7 处
-压测命令: bin/loadgen '-url' 'http://127.0.0.1:8080/api/courses/1' '-rates' '566,944,1322,1510,1699,1888,2077,2266'
+仓库提交: dab739e，未提交的改动 18 处
+压测命令: bin/loadgen '-url' 'http://127.0.0.1:8080/api/courses/1' '-rates' '566,1133,1510,1699,1888,2077,2360,2832'
 enrolld /config:
 {
   "addr": "127.0.0.1:8080",
@@ -23,6 +23,6 @@ enrolld /config:
   "go_version": "go1.27.3",
   "gomaxprocs": 1,
   "gogc": "",
-  "pid": 473863,
-  "started": "2026-10-29T11:30:58+08:00"
+  "pid": 620177,
+  "started": "2026-10-29T22:50:07+08:00"
 }

@@ -3,24 +3,56 @@
 enrolld_info{work="200000",pool="40",db_ms="10",sync="each",go_version="go1.27.3"} 1
 # HELP http_requests_total 处理完的请求数，按接口和状态码分
 # TYPE http_requests_total counter
-http_requests_total{route="/api/courses/{id}",code="200"} 367855
+http_requests_total{route="/api/courses/{id}",code="200"} 294565
+http_requests_total{route="/api/courses/{id}",code="499"} 20006
+http_requests_total{route="/api/courses/{id}",code="503"} 21788
 # HELP http_request_duration_seconds 服务端耗时：从进入处理函数到处理函数返回（不含内核里的排队和网络）
 # TYPE http_request_duration_seconds histogram
 http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.001"} 0
 http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.002"} 0
 http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.005"} 0
 http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.01"} 0
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.02"} 367430
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.05"} 367787
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.1"} 367855
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.2"} 367855
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.5"} 367855
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="1"} 367855
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="2"} 367855
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="5"} 367855
-http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="+Inf"} 367855
-http_request_duration_seconds_sum{route="/api/courses/{id}",code="200"} 3942.194848808941
-http_request_duration_seconds_count{route="/api/courses/{id}",code="200"} 367855
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.02"} 278758
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.05"} 278892
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.1"} 279217
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.2"} 279391
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.5"} 281279
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="1"} 288002
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="2"} 294517
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="5"} 294565
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="+Inf"} 294565
+http_request_duration_seconds_sum{route="/api/courses/{id}",code="200"} 16085.20680989008
+http_request_duration_seconds_count{route="/api/courses/{id}",code="200"} 294565
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.001"} 14962
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.002"} 14980
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.005"} 15029
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.01"} 15221
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.02"} 15738
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.05"} 17130
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.1"} 17746
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.2"} 17748
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="0.5"} 17890
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="1"} 19999
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="2"} 20006
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="5"} 20006
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="499",le="+Inf"} 20006
+http_request_duration_seconds_sum{route="/api/courses/{id}",code="499"} 1894.6602871939886
+http_request_duration_seconds_count{route="/api/courses/{id}",code="499"} 20006
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.001"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.002"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.005"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.01"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.02"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.05"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.1"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.2"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="0.5"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="1"} 0
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="2"} 21788
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="5"} 21788
+http_request_duration_seconds_bucket{route="/api/courses/{id}",code="503",le="+Inf"} 21788
+http_request_duration_seconds_sum{route="/api/courses/{id}",code="503"} 21849.74871824987
+http_request_duration_seconds_count{route="/api/courses/{id}",code="503"} 21788
 # HELP http_inflight_requests 正在处理的请求数（在途）
 # TYPE http_inflight_requests gauge
 http_inflight_requests{route="/api/courses/{id}"} 0
@@ -38,38 +70,38 @@ db_pool_size 40
 db_pool_in_use 0
 # HELP db_pool_wait_seconds 等到一个空闲连接花的时间（含等待超时的请求）
 # TYPE db_pool_wait_seconds histogram
-db_pool_wait_seconds_bucket{le="0.001"} 367854
-db_pool_wait_seconds_bucket{le="0.002"} 367855
-db_pool_wait_seconds_bucket{le="0.005"} 367855
-db_pool_wait_seconds_bucket{le="0.01"} 367855
-db_pool_wait_seconds_bucket{le="0.02"} 367855
-db_pool_wait_seconds_bucket{le="0.05"} 367855
-db_pool_wait_seconds_bucket{le="0.1"} 367855
-db_pool_wait_seconds_bucket{le="0.2"} 367855
-db_pool_wait_seconds_bucket{le="0.5"} 367855
-db_pool_wait_seconds_bucket{le="1"} 367855
-db_pool_wait_seconds_bucket{le="2"} 367855
-db_pool_wait_seconds_bucket{le="5"} 367855
-db_pool_wait_seconds_bucket{le="+Inf"} 367855
-db_pool_wait_seconds_sum 0.7363041249999679
-db_pool_wait_seconds_count 367855
+db_pool_wait_seconds_bucket{le="0.001"} 295869
+db_pool_wait_seconds_bucket{le="0.002"} 295895
+db_pool_wait_seconds_bucket{le="0.005"} 296019
+db_pool_wait_seconds_bucket{le="0.01"} 296240
+db_pool_wait_seconds_bucket{le="0.02"} 296786
+db_pool_wait_seconds_bucket{le="0.05"} 298257
+db_pool_wait_seconds_bucket{le="0.1"} 298954
+db_pool_wait_seconds_bucket{le="0.2"} 299048
+db_pool_wait_seconds_bucket{le="0.5"} 300644
+db_pool_wait_seconds_bucket{le="1"} 312277
+db_pool_wait_seconds_bucket{le="2"} 336353
+db_pool_wait_seconds_bucket{le="5"} 336359
+db_pool_wait_seconds_bucket{le="+Inf"} 336359
+db_pool_wait_seconds_sum 34867.061279905545
+db_pool_wait_seconds_count 336359
 # HELP db_query_duration_seconds 拿到连接以后查询本身占用连接的时间
 # TYPE db_query_duration_seconds histogram
 db_query_duration_seconds_bucket{le="0.001"} 0
 db_query_duration_seconds_bucket{le="0.002"} 0
 db_query_duration_seconds_bucket{le="0.005"} 0
 db_query_duration_seconds_bucket{le="0.01"} 0
-db_query_duration_seconds_bucket{le="0.02"} 367435
-db_query_duration_seconds_bucket{le="0.05"} 367787
-db_query_duration_seconds_bucket{le="0.1"} 367855
-db_query_duration_seconds_bucket{le="0.2"} 367855
-db_query_duration_seconds_bucket{le="0.5"} 367855
-db_query_duration_seconds_bucket{le="1"} 367855
-db_query_duration_seconds_bucket{le="2"} 367855
-db_query_duration_seconds_bucket{le="5"} 367855
-db_query_duration_seconds_bucket{le="+Inf"} 367855
-db_query_duration_seconds_sum 3797.311829175905
-db_query_duration_seconds_count 367855
+db_query_duration_seconds_bucket{le="0.02"} 284297
+db_query_duration_seconds_bucket{le="0.05"} 285438
+db_query_duration_seconds_bucket{le="0.1"} 293626
+db_query_duration_seconds_bucket{le="0.2"} 293921
+db_query_duration_seconds_bucket{le="0.5"} 294423
+db_query_duration_seconds_bucket{le="1"} 294530
+db_query_duration_seconds_bucket{le="2"} 294565
+db_query_duration_seconds_bucket{le="5"} 294565
+db_query_duration_seconds_bucket{le="+Inf"} 294565
+db_query_duration_seconds_sum 3770.432491116958
+db_query_duration_seconds_count 294565
 # HELP enroll_fsync_duration_seconds 每次 fsync 的耗时（应用自己量的）
 # TYPE enroll_fsync_duration_seconds histogram
 enroll_fsync_duration_seconds_bucket{le="0.0001"} 0
@@ -105,10 +137,10 @@ enroll_commit_batch_size_sum 0
 enroll_commit_batch_size_count 0
 # HELP process_cpu_seconds_total 进程累计用掉的 CPU 时间（user + system，秒）
 # TYPE process_cpu_seconds_total counter
-process_cpu_seconds_total 166.73850299999998
+process_cpu_seconds_total 153.64912700000002
 # HELP process_resident_memory_bytes 进程真正占用的物理内存 RSS（字节）
 # TYPE process_resident_memory_bytes gauge
-process_resident_memory_bytes 1.9836928e+07
+process_resident_memory_bytes 8.1498112e+07
 # HELP process_open_fds 打开的文件描述符数（含连接）
 # TYPE process_open_fds gauge
 process_open_fds 11
@@ -117,7 +149,7 @@ process_open_fds 11
 process_threads 6
 # HELP process_cpu_wait_seconds_total 进程的线程在运行队列里等 CPU 的累计时间（秒），取自各线程的 /proc/self/task/*/schedstat；它的速率是平均有几个线程在等核，是 CPU 饱和的直接证据
 # TYPE process_cpu_wait_seconds_total counter
-process_cpu_wait_seconds_total 35.79576237300001
+process_cpu_wait_seconds_total 27.552706242
 # HELP go_goroutines goroutine 数
 # TYPE go_goroutines gauge
 go_goroutines 7
@@ -126,29 +158,29 @@ go_goroutines 7
 go_gomaxprocs 1
 # HELP go_gc_cycles_total 完成的 GC 次数
 # TYPE go_gc_cycles_total counter
-go_gc_cycles_total 485
+go_gc_cycles_total 392
 # HELP go_sched_latencies_seconds goroutine 可以运行但在等执行线程（等 CPU）的时间；运行时的桶比这里细，换算时整桶归入不小于它上沿的那个桶，_sum 按每个桶的下沿估计
 # TYPE go_sched_latencies_seconds histogram
-go_sched_latencies_seconds_bucket{le="1e-05"} 150999
-go_sched_latencies_seconds_bucket{le="5e-05"} 155029
-go_sched_latencies_seconds_bucket{le="0.0001"} 157185
-go_sched_latencies_seconds_bucket{le="0.0005"} 209972
-go_sched_latencies_seconds_bucket{le="0.001"} 226672
-go_sched_latencies_seconds_bucket{le="0.002"} 239784
-go_sched_latencies_seconds_bucket{le="0.005"} 248175
-go_sched_latencies_seconds_bucket{le="0.01"} 251729
-go_sched_latencies_seconds_bucket{le="0.02"} 255238
-go_sched_latencies_seconds_bucket{le="0.05"} 261989
-go_sched_latencies_seconds_bucket{le="0.1"} 263307
-go_sched_latencies_seconds_bucket{le="0.2"} 263600
-go_sched_latencies_seconds_bucket{le="0.5"} 263869
-go_sched_latencies_seconds_bucket{le="1"} 263882
-go_sched_latencies_seconds_bucket{le="+Inf"} 263882
-go_sched_latencies_seconds_sum 458.03623104000013
-go_sched_latencies_seconds_count 263882
+go_sched_latencies_seconds_bucket{le="1e-05"} 139337
+go_sched_latencies_seconds_bucket{le="5e-05"} 143160
+go_sched_latencies_seconds_bucket{le="0.0001"} 145069
+go_sched_latencies_seconds_bucket{le="0.0005"} 197155
+go_sched_latencies_seconds_bucket{le="0.001"} 211894
+go_sched_latencies_seconds_bucket{le="0.002"} 223380
+go_sched_latencies_seconds_bucket{le="0.005"} 230418
+go_sched_latencies_seconds_bucket{le="0.01"} 232681
+go_sched_latencies_seconds_bucket{le="0.02"} 234669
+go_sched_latencies_seconds_bucket{le="0.05"} 239108
+go_sched_latencies_seconds_bucket{le="0.1"} 243309
+go_sched_latencies_seconds_bucket{le="0.2"} 243741
+go_sched_latencies_seconds_bucket{le="0.5"} 247382
+go_sched_latencies_seconds_bucket{le="1"} 253642
+go_sched_latencies_seconds_bucket{le="+Inf"} 254867
+go_sched_latencies_seconds_sum 6631.535600448
+go_sched_latencies_seconds_count 254867
 # HELP go_gc_cpu_seconds_total GC 用掉的 CPU 时间估计（秒）
 # TYPE go_gc_cpu_seconds_total counter
-go_gc_cpu_seconds_total 0.433254602
+go_gc_cpu_seconds_total 0.531364612
 # HELP go_heap_objects_bytes 堆上对象占用的字节数（含尚未回收的）
 # TYPE go_heap_objects_bytes gauge
-go_heap_objects_bytes 7.159456e+06
+go_heap_objects_bytes 3.584904e+07
