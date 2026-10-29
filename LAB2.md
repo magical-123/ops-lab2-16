@@ -64,22 +64,27 @@ fsync 时整机 `us+sy` 约 **7.93%**，CPU 并不繁忙；`wa≈44.29%`、`b` �
 
 ## 3. 任务 1：指标流水线
 
-两个抓取目标的状态（`curl -s 127.0.0.1:9090/api/v1/targets` 中两处 `"health"` 的值）：<填写>
+两个抓取目标的状态（`curl -s 127.0.0.1:9090/api/v1/targets` 中两处 `"health"` 的值）：up、up
 
 本组编写的四条查询（与 `deploy/queries-red.txt` 一致）：
 
 ```text
-server_rps          <填写>
-server_error_rate   <填写>
-server_p99_ms       <填写>
-server_slo_good     <填写>
+server_rps          sum(rate(http_requests_total{route="${route}"}[${window}]))
+server_error_rate   (sum(rate(http_requests_total{route="${route}",code=~"5.."}[${window}])) or vector(0)) / sum(rate(http_requests_total{route="${route}"}[${window}]))
+server_p99_ms       1000 * histogram_quantile(0.99, sum by (le) (rate(http_request_duration_seconds_bucket{route="${route}"}[${window}])))
+server_slo_good     sum(rate(http_request_duration_seconds_bucket{route="${route}",code="200",le="${slo}"}[${window}])) / sum(rate(http_request_duration_seconds_count{route="${route}"}[${window}]))
 ```
 
 `runs/t1-light` 的数据（`scripts/table.sh runs/t1-light ok_rps mean_ms p99_ms server_rps server_mean_ms server_p99_ms cpu_ms_per_req db_query_mean_ms`）：
 
-<粘贴表格>
+| step | target_rps | ok_rps | mean_ms | p99_ms | server_rps | server_mean_ms | server_p99_ms | cpu_ms_per_req | db_query_mean_ms |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | 0 | 0.0 | - | - | - | - | - | - | NaN |
+| 2 | 50 | 50.5 | 11.51 | 12.74 | 51.7083 | 10.7291 | 19.9 | 0.575588 | 10.3165 |
+| 3 | 100 | 97.8 | 11.66 | 13.99 | 95.3333 | 10.8729 | 19.9 | 0.572802 | 10.4239 |
+| all | - | 74.2 | 11.61 | 13.41 | - | - | - | - | - |
 
-从这次实验读出：每次查询实际占用连接 <填写> ms（`db_query_mean_ms`）；每个请求消耗的 CPU <填写> ms（`cpu_ms_per_req`，取 100 请求/秒的阶段）。
+从这次实验读出：每次查询实际占用连接 **10.42 ms**（`db_query_mean_ms`，取 100 rps 阶段）；每个请求消耗的 CPU **0.573 ms**（`cpu_ms_per_req`，取 100 请求/秒的阶段）。
 
 ## 4. 任务 2：读路径
 
