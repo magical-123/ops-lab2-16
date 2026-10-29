@@ -1,4 +1,4 @@
-# 服务层：RED，再加上“它在等什么”（L-08 第 6 页）。scripts/run.sh 每次实验结束后用 promsteps 对每个阶段执行一遍，
+# 服务层：RED，再加上"它在等什么"（L-08 第 6 页）。scripts/run.sh 每次实验结束后用 promsteps 对每个阶段执行一遍，
 # 结果写进 runs/<名字>/red.csv。
 #
 # 每行：名字  PromQL。${window} 是阶段窗口（阶段时长减去开头 5 s）；${route}、${slo} 由 run.sh 填：
