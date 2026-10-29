@@ -1,0 +1,68 @@
+2026-10-30T00:15:32+08:00
+lab2-16-o2
+uid=1000(lab2_m1) gid=1001(lab2_m1) groups=1001(lab2_m1),1000(lab2_o2)
+Linux lab2-16-o2 6.8.0-136-generic #136-Ubuntu SMP PREEMPT_DYNAMIC Wed Jul  1 21:53:05 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           42 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Xeon(R) Gold 6278C CPU @ 2.60GHz
+CPU family:                              6
+Model:                                   85
+Thread(s) per core:                      2
+Core(s) per socket:                      2
+Socket(s):                               1
+Stepping:                                7
+BogoMIPS:                                5200.00
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle smep bmi2 erms invpcid rtm rdseed adx smap clflushopt clwb arat md_clear flush_l1d arch_capabilities
+Hypervisor vendor:                       KVM
+Virtualization type:                     full
+L1d cache:                               64 KiB (2 instances)
+L1i cache:                               64 KiB (2 instances)
+L2 cache:                                2 MiB (2 instances)
+L3 cache:                                35.8 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-3
+Vulnerability Gather data sampling:      Unknown: Dependent on hypervisor status
+Vulnerability Indirect target selection: Mitigation; Aligned branch/return thunks
+Vulnerability Itlb multihit:             KVM: Mitigation: VMX unsupported
+Vulnerability L1tf:                      Not affected
+Vulnerability Mds:                       Not affected
+Vulnerability Meltdown:                  Not affected
+Vulnerability Mmio stale data:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Mitigation; Enhanced IBRS
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+Vulnerability Srbds:                     Not affected
+Vulnerability Tsa:                       Not affected
+Vulnerability Tsx async abort:           Vulnerable: Clear CPU buffers attempted, no microcode; SMT Host state unknown
+Vulnerability Vmscape:                   Not affected
+               total        used        free      shared  buff/cache   available
+Mem:            7556         726        5838           2        1251        6830
+Swap:              0           0           0
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UP             192.168.0.204/24 fe80::f816:3eff:fed2:2af6/64 
+192.168.0.206 dev eth0 src 192.168.0.204 uid 1000 
+    cache 
+36a5df460206f71963df2cdff3471b84cbb20fb8caf59da62ee0d6285a3ea317  /srv/lab2-o2/bin/loadgen
+Copied from primary server /srv/lab2/bin/loadgen on 2026-10-29.
+SHA256: 36a5df460206f71963df2cdff3471b84cbb20fb8caf59da62ee0d6285a3ea317
+Go: go1.27.3; CGO_ENABLED=0; GOOS=linux; GOARCH=amd64; GOAMD64=v1.
+Module path: enroll-lab/cmd/loadgen
+Module version: v0.0.0-20261027070022-d7ae8a402a98
+Embedded vcs.revision: d7ae8a402a98adc21d81ba58a015332affee77a0
+Embedded vcs.time: 2026-10-27T07:00:22Z
+Embedded vcs.modified: false
+Primary repository HEAD at inspection: 34c8bb1aea3fe3307646d7b11c117672287c3f19
+Primary working tree had a modified LAB2.md; it was preserved.
+The embedded revision, rather than current repository HEAD, identifies this binary build.
+GOMAXPROCS=4
+rate=400,450,475,500,525,575
+step=30s
+client_affinity=pid 9373's current affinity list: 0-3

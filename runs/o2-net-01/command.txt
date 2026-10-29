@@ -1,0 +1,1 @@
+GOMAXPROCS=4 /srv/lab2-o2/bin/loadgen -url http://192.168.0.206:8080/api/export\?kb=256 -rates 0\,100\,250\,400\,550\,700 -step 30s -arrival uniform -timeout 2s -slo 50ms -out /srv/lab2-o2/runs/o2-net-01/steps.csv

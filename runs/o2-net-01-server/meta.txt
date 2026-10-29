@@ -1,0 +1,42 @@
+2026-10-29T23:45:25+08:00
+dab739e5b81dada71a28ae145699646f3a946d6c
+ M deploy/prometheus.yml
+ M runs/r2-pool40/iostat.log
+ M runs/r2-pool40/loadgen.log
+ M runs/r2-pool40/meta.txt
+ M runs/r2-pool40/metrics-end.txt
+ M runs/r2-pool40/metrics-start.txt
+ M runs/r2-pool40/mpstat.log
+ M runs/r2-pool40/pidstat.log
+ M runs/r2-pool40/red.csv
+ M runs/r2-pool40/steps.csv
+ M runs/r2-pool40/use.csv
+ M runs/r2-pool40/vmstat.log
+?? deploy/rules.yml
+?? runs/o1-100-warmup/
+?? runs/o1-400-warmup/
+?? runs/o1-gogc100/
+?? runs/o1-gogc400/
+?? runs/o2-net-01-server/
+?? runs/o3-burn/
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE
+  0    0      0    0 0:0:0:0          yes
+  1    0      0    0 0:0:0:0          yes
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+eth0             UP             192.168.0.206/24 fe80::f816:3eff:fed2:2af8/64 
+4dd90b5ebbc89cf5ae034ec5b7311e07c64519e66e5b5ab403fff8cec9d5f67a  bin/enrolld
+bin/enrolld: go1.27.3
+	path	enroll-lab/cmd/enrolld
+	mod	enroll-lab	v0.0.0-20261027070022-d7ae8a402a98	
+	build	-buildmode=exe
+	build	-compiler=gc
+	build	-trimpath=true
+	build	DefaultGODEBUG=tracebacklabels=0,x509sslcertoverrideplatform=0
+	build	CGO_ENABLED=0
+	build	GOARCH=amd64
+	build	GOOS=linux
+	build	GOAMD64=v1
+	build	vcs=git
+	build	vcs.revision=d7ae8a402a98adc21d81ba58a015332affee77a0
+	build	vcs.time=2026-10-27T07:00:22Z
+	build	vcs.modified=false
