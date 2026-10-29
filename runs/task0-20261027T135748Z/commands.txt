@@ -1,0 +1,12 @@
+Working directory: /srv/lab2
+LC_ALL=C S_TIME_FORMAT=ISO TZ=UTC
+bin/enrolld -bench-fsync 2000 (three consecutive invocations; fsync-1/2/3.txt)
+vmstat -w -t 1 13 (idle-vmstat.log)
+iostat -dx -t vda 1 13 (idle-iostat.log)
+vmstat -w -t 1 (each loaded phase)
+iostat -dx -t vda 1 (each loaded phase)
+bin/enrolld -bench-fsync 5000 (fsync5000-bench.txt)
+If 5000 operations take <10 seconds, an explicitly labelled longer run is added.
+Exact counts/start/end timestamps are preserved in load-windows.tsv.
+Exclude the initial boot-average report and partial boundary intervals in analysis.
+No HTTP/monitoring service or concurrent loadgen was running during these baselines.

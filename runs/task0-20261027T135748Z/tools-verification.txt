@@ -1,0 +1,23 @@
+2026-10-27T15:33:47+00:00
+87f21a66f96c597a189cef8d640e8921b621fc17a9feff707c332c4f3b3ddd56  tools/prometheus-3.13.4.linux-amd64.tar.gz
+b51d8a76aa2a9156a55d501aca6276fae09e262259a5e4e831d2c2222f084e63  tools/node_exporter-1.12.1.linux-amd64.tar.gz
+已解压到 tools/prometheus-3.13.4.linux-amd64
+已解压到 tools/node_exporter-1.12.1.linux-amd64
+prometheus, version 3.13.4 (branch: HEAD, revision: 007a9e9ba628f815ce83e1ba9f29b97981996c3c)
+node_exporter, version 1.12.1 (branch: HEAD, revision: 6044da783597cc3b57aef7580ddcdcff58a4ee99)
+Checking deploy/prometheus.yml
+ SUCCESS: deploy/prometheus.yml is valid prometheus config file syntax
+
+go version go1.27.3 linux/amd64
+prometheus, version 3.13.4 (branch: HEAD, revision: 007a9e9ba628f815ce83e1ba9f29b97981996c3c)
+  build user:       root@f73b5a01ed25
+  build date:       20260929-13:32:05
+  go version:       go1.26.8
+  platform:         linux/amd64
+  tags:             netgo,builtinassets
+node_exporter, version 1.12.1 (branch: HEAD, revision: 6044da783597cc3b57aef7580ddcdcff58a4ee99)
+  build user:       root@3a6b59999579
+  build date:       20260714-12:05:11
+  go version:       go1.26.5
+  platform:         linux/amd64
+  tags:             unknown
