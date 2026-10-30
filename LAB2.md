@@ -415,7 +415,7 @@ R1 第一个不达标阶段是**阶段 6**（target_rps=346），客户端 slo_g
 | O1 内存与 GC | 已完成。相同 100 rps 下，GOGC 100→400：GC 次数增量 5989→1497，GC CPU 估计增量 2.213599→0.546274 s；RSS 均值 11.283622→25.987863 MiB，客户端 p99 6.56→3.50 ms。原始证据与解释见下文及 [`docs/A-O1-results.md`](docs/A-O1-results.md)。 |
 | O2 网络 | 服务机与压测机位于同一 VPC，通过内网相连；<br>在 rps 为 525 时出现错误和 p99 跳变（见 `runs/o2-net-02/loadgen.log` ），同时 sar 记录的 txkB/s 从平稳变为逐渐增加（见 `runs/o2-net-02-server/server-sar.log` 12:17:35 AM 至 12:18:05 AM 间的数据），说明此时达到上限，请求开始堆积；<br>由 525 rps 计算得最大带宽为 525 * 256 kB * 8 = 1.08 Gbps，与云主机官网标称的 1 Gibps 几乎一致 |
 | O3 告警与看板 | ✅ 已完成。规则文件：`deploy/rules.yml`；触发记录：`runs/o3-burn/alerts.json`（状态 `firing`，activeAt: 2026-10-29T12:43:03Z）；看板九格查询见下方。 |
-| O4 迁移到小组项目 | <未做 / 仓库链接、测了哪个资源、结论> |
+| O4 迁移到小组项目 | ✅ 已完成。真实项目：[InfoDigest 后端](https://github.com/magical-123/SE26Project-08)（Spring Boot 3.2.3 + MySQL 8 + HikariCP + Redis）；埋点 Actuator + Micrometer + Prometheus（`GET /actuator/prometheus` 免鉴权，其余 `/api/**` 保持 JWT）；压测目标 `GET /api/health/db`；测的资源：**CPU**（单核瓶颈，上限 ≈2000 rps）。资源账、RED PromQL 与分析见下方。 |
 
 ### O1 内存与 GC
 
@@ -446,6 +446,28 @@ R1 第一个不达标阶段是**阶段 6**（target_rps=346），客户端 slo_g
 | **饱和/排队** | `1000*histogram_quantile(0.99, sum by(le)(rate(db_pool_wait_seconds_bucket[5m])))` (pool_wait p99 ms) | `1000*histogram_quantile(0.99, rate(go_sched_latencies_seconds_bucket[5m]))` (sched_wait p99 ms) | `avg_over_time(node_procs_running[5m])` (运行队列) |
 
 **告警规则说明**：当读路径 5 分钟达标率低于 85.6%（即燃烧率超过 14.4 倍）且持续 2 分钟时触发 critical 告警。测试中以 800 rps（约 2 倍连接池上限）压测，3 分钟内告警从 pending 转为 firing。
+
+### O4 迁移到小组项目：RED 指标与资源账
+
+**项目与埋点**：InfoDigest 后端（Spring Boot 3.2.3，Java 17，MySQL 8，HikariCP，Redis），埋点改动在分支 `codex/o4-backend-preparation`。通过 Actuator + Micrometer + Prometheus 自动采集，未手写业务埋点；指标端点 `GET /actuator/prometheus` 免鉴权，统一标签 `application="infodigest-backend"`。导出指标族：`http_server_requests_seconds_count/_sum/_bucket`（带 `status`、`uri` 标签）与 `hikaricp_connections_*`。压测目标 `GET /api/health/db`（真实 `SELECT 1`，走 Hikari 池）。
+
+**资源账（CPU，loadgen 开环，poisson，超时 2s）：**
+
+| 资源 | 每个请求占用(实测) | 容量 | 推算上限 | 实测最大吞吐量 | 利用率 | 饱和观测项 |
+|---|---|---|---|---|---|---|
+| CPU(后端进程) | 0.485 ms（2000rps 时 0.97 核 ÷ 2000rps） | 1 核 = 1000 ms/s（2 核主机，后端实测仅用满约 1 核） | 2060 rps | 2000 rps（2500rps 即 44% 错误） | 97% | 2500rps 时 error_rate 0→44%、p99 17→1934ms、32888 超时 |
+
+**预测 vs 实测**：2060 vs 2000，误差 3%。三点结论：
+1. **单核串行瓶颈**：后端进程在 2000 rps 稳定用满约 1 核（97%），未扩展到第 2 核。2 核主机上 loadgen（gen_cpu_pct=36%）、MySQL、Redis、Prometheus 共享余下 CPU，且 Spring MVC→JdbcTemplate→Hikari→MySQL 的请求路径存在串行点，实际可用约 1 核。
+2. **每请求 CPU 随负载下降**：200rps 时 0.74 ms → 2000rps 时 0.485 ms，固定开销（JVM/Spring/连接池）被摊薄。与 Go 示例同向：低负载测每请求开销会低估上限，应在接近目标负载下测量。
+3. **连接池非瓶颈**：`hikaricp_connections_timeout_total=0`（从无请求因等连接超时），持连接平均 1.01 ms → 池容量 10÷0.001≈9900 rps ≫ 2000，故排除。
+
+**RED 三项 PromQL（Spring Boot 指标名，非 Go 示例）：**
+- Rate：`sum(rate(http_server_requests_seconds_count{uri="/api/health/db"}[1m]))`
+- 错误率：`sum(rate(http_server_requests_seconds_count{uri="/api/health/db",status=~"5.."}[1m])) / sum(rate(http_server_requests_seconds_count{uri="/api/health/db"}[1m]))`
+- p99：`1000*histogram_quantile(0.99, sum by(le)(rate(http_server_requests_seconds_bucket{uri="/api/health/db"}[1m])))`
+
+**原始证据**：`runs/o4/steps.csv`、`runs/o4/pidstat-ramp.txt`、`runs/o4/metrics.txt`、`runs/o4/meta.txt`。
 
 ## 8. 成员分工
 
