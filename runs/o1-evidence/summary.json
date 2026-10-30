@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "conditions": [
+    100,
+    400
+  ],
+  "runs_per_condition": 1,
+  "notes": [
+    "Each GOGC condition has one recorded run, not repeated or randomized trials; differences are descriptive, not proof of causality or statistical significance.",
+    "GC increments subtract each run's own metrics-start/end counters. run.sh snapshots enclose load generation, collector setup, request drain and the final one-second wait; this is not an exact 60-second counter window.",
+    "Only meta.txt captures process configuration. Distinct PID/start identities and monotonic counters are consistent with separate processes, but there is no end-of-run configuration or complete proof against an intervening restart.",
+    "go_gc_cpu_seconds_total is a runtime GC CPU-time estimate, not pause time or an OS measurement of process CPU time.",
+    "RSS statistics are the mean and observed maximum of Prometheus query evaluations in [stage start+5s, stage end]. The 1-second query step does not establish the actual scrape interval or independent samples; repeated values are retained in the mean.",
+    "Consecutive equal RSS values are also counted as one block. The block count is only a lower bound on underlying distinct observations/updates, not a count of statistically independent samples; equal values can originate from different scrapes.",
+    "RSS observed maximum is not the instantaneous process high-water mark. Bytes are converted to MiB by division by 1048576.",
+    "Client p99 covers the full 60-second stage and only successful requests, from scheduled send time through response completion. It already includes send lag; it is not the RSS 55-second window or GC pause latency."
+  ],
+  "runs": [
+    {
+      "gogc": 100,
+      "evidence_directory": "runs/o1-gogc100",
+      "meta": {
+        "config": {
+          "addr": "127.0.0.1:8080",
+          "work": 200000,
+          "pool": 4,
+          "db_ms": 10,
+          "pool_timeout": "1s",
+          "sync": "each",
+          "sync_interval": "1s",
+          "data": "data",
+          "go_version": "go1.27.3",
+          "gomaxprocs": 1,
+          "gogc": "100",
+          "pid": 612750,
+          "started": "2026-10-29T22:20:59+08:00"
+        },
+        "started_unix_s": 1793283659.0,
+        "source_commit": "dab739e",
+        "uncommitted_paths_count": 5,
+        "loadgen_command": [
+          "bin/loadgen",
+          "-url",
+          "http://127.0.0.1:8080/api/report?mb=4",
+          "-rates",
+          "100",
+          "-step",
+          "60s"
+        ],
+        "service_cpus": "1",
+        "loadgen_cpus": "0"
+      },
+      "stage": {
+        "start_unix": 1793283918,
+        "end_unix": 1793283978,
+        "duration_s": 60,
+        "target_rps": 100.0
+      },
+      "client": {
+        "sent": 5989,
+        "ok": 5989,
+        "http_err": 0,
+        "timeout": 0,
+        "net_err": 0,
+        "dropped": 0,
+        "ok_rps": 99.8,
+        "error_rate": 0.0,
+        "mean_ms": 3.18,
+        "p50_ms": 3.06,
+        "p90_ms": 4.8,
+        "p99_ms": 6.56,
+        "max_ms": 8.51,
+        "slo_good": 1.0,
+        "lag_p99_ms": 1.07,
+        "gen_cpu_pct": 3.0,
+        "codes": "",
+        "warn": "",
+        "errors_total": 0
+      },
+      "gc": {
+        "start": {
+          "go_gc_cycles_total": 998,
+          "go_gc_cpu_seconds_total": 0.365168615
+        },
+        "end": {
+          "go_gc_cycles_total": 6987,
+          "go_gc_cpu_seconds_total": 2.57876734
+        },
+        "delta": {
+          "go_gc_cycles_total": 5989,
+          "go_gc_cpu_seconds_total": 2.213598725
+        }
+      },
+      "rss": {
+        "metric_labels": {
+          "__name__": "process_resident_memory_bytes",
+          "instance": "127.0.0.1:8080",
+          "job": "enrolld"
+        },
+        "start_unix": 1793283923,
+        "end_unix": 1793283978,
+        "query_step_s": 1,
+        "query_evaluations": 56,
+        "consecutive_value_blocks": 34,
+        "distinct_values": 19,
+        "mean_bytes": 11831734.857142856,
+        "observed_peak_bytes": 14372864,
+        "mean_mib": 11.283621651785714,
+        "observed_peak_mib": 13.70703125,
+        "existing_summary_verified": true
+      },
+      "warnings": [],
+      "source_sha256": {
+        "meta.txt": "9cd624347dac1a2c5a0fcbf9e19195bf2a3316adf769a1453b04170bffbe8e57",
+        "steps.csv": "50c379e5e4f7fa559e6a129d59f095705fad1b0bf05cf81c92e767cea2620db2",
+        "metrics-start.txt": "21075d0e5b2783e606ae08500c8643de14c2cea1c1fade0654be2aeb4c4a49ce",
+        "metrics-end.txt": "5b2369bb38384b0ad13eaac99df4f6986611e295bf6281080366e9f3ca60e4de",
+        "rss-query.json": "398a244ef91efaa62b22018f15f4624cbbfdc72a5fed4ac0afce372501fc8eb8",
+        "rss-summary.json": "7226850854998565fc001c8993108581c6f2a53512b993f5f192a3015c23888d"
+      }
+    },
+    {
+      "gogc": 400,
+      "evidence_directory": "runs/o1-gogc400",
+      "meta": {
+        "config": {
+          "addr": "127.0.0.1:8080",
+          "work": 200000,
+          "pool": 4,
+          "db_ms": 10,
+          "pool_timeout": "1s",
+          "sync": "each",
+          "sync_interval": "1s",
+          "data": "data",
+          "go_version": "go1.27.3",
+          "gomaxprocs": 1,
+          "gogc": "400",
+          "pid": 614574,
+          "started": "2026-10-29T22:28:36+08:00"
+        },
+        "started_unix_s": 1793284116.0,
+        "source_commit": "dab739e",
+        "uncommitted_paths_count": 7,
+        "loadgen_command": [
+          "bin/loadgen",
+          "-url",
+          "http://127.0.0.1:8080/api/report?mb=4",
+          "-rates",
+          "100",
+          "-step",
+          "60s"
+        ],
+        "service_cpus": "1",
+        "loadgen_cpus": "0"
+      },
+      "stage": {
+        "start_unix": 1793284177,
+        "end_unix": 1793284237,
+        "duration_s": 60,
+        "target_rps": 100.0
+      },
+      "client": {
+        "sent": 5989,
+        "ok": 5989,
+        "http_err": 0,
+        "timeout": 0,
+        "net_err": 0,
+        "dropped": 0,
+        "ok_rps": 99.8,
+        "error_rate": 0.0,
+        "mean_ms": 1.69,
+        "p50_ms": 1.62,
+        "p90_ms": 2.37,
+        "p99_ms": 3.5,
+        "max_ms": 10.85,
+        "slo_good": 1.0,
+        "lag_p99_ms": 1.07,
+        "gen_cpu_pct": 2.0,
+        "codes": "",
+        "warn": "",
+        "errors_total": 0
+      },
+      "gc": {
+        "start": {
+          "go_gc_cycles_total": 249,
+          "go_gc_cpu_seconds_total": 0.085071159
+        },
+        "end": {
+          "go_gc_cycles_total": 1746,
+          "go_gc_cpu_seconds_total": 0.631344779
+        },
+        "delta": {
+          "go_gc_cycles_total": 1497,
+          "go_gc_cpu_seconds_total": 0.54627362
+        }
+      },
+      "rss": {
+        "metric_labels": {
+          "__name__": "process_resident_memory_bytes",
+          "instance": "127.0.0.1:8080",
+          "job": "enrolld"
+        },
+        "start_unix": 1793284182,
+        "end_unix": 1793284237,
+        "query_step_s": 1,
+        "query_evaluations": 56,
+        "consecutive_value_blocks": 13,
+        "distinct_values": 13,
+        "mean_bytes": 27250249.14285714,
+        "observed_peak_bytes": 27275264,
+        "mean_mib": 25.987862723214285,
+        "observed_peak_mib": 26.01171875,
+        "existing_summary_verified": true
+      },
+      "warnings": [],
+      "source_sha256": {
+        "meta.txt": "5d98bd98abb0024689bc845e3618a1932d2f5d28a7a0c78c91ae7a16785713c8",
+        "steps.csv": "17cb132cd3e229b17f79d3e3ca07ee4c21cdd1a9506d90416d23a1aef8ce5e0a",
+        "metrics-start.txt": "a0addbc886238ebc820411586f2906de394ddbfd666dae6f57ccd3f03d202579",
+        "metrics-end.txt": "ddf9f09641783c93ca0402876d75711babb941ff423fda174f276296c91e98d2",
+        "rss-query.json": "37b992c2dd2350aa44edf4672780182a6422ff5c63d1a950a06cc171e57b0f14",
+        "rss-summary.json": "dcf6e57a7f1c89550164879ab4ce567f9ca70a51d9f274233735acc36144868e"
+      }
+    }
+  ],
+  "comparison_400_vs_100": {
+    "gc_cycles_delta": {
+      "gogc100": 5989,
+      "gogc400": 1497,
+      "absolute_400_minus_100": -4492,
+      "percent_change_from_100": -75.0041743195859
+    },
+    "gc_cpu_estimate_delta_s": {
+      "gogc100": 2.213598725,
+      "gogc400": 0.54627362,
+      "absolute_400_minus_100": -1.6673251050000002,
+      "percent_change_from_100": -75.32192199830618
+    },
+    "rss_mean_mib": {
+      "gogc100": 11.283621651785714,
+      "gogc400": 25.987862723214285,
+      "absolute_400_minus_100": 14.704241071428571,
+      "percent_change_from_100": 130.31490708571854
+    },
+    "rss_observed_peak_mib": {
+      "gogc100": 13.70703125,
+      "gogc400": 26.01171875,
+      "absolute_400_minus_100": 12.3046875,
+      "percent_change_from_100": 89.76916500427473
+    },
+    "client_p99_ms": {
+      "gogc100": 6.56,
+      "gogc400": 3.5,
+      "absolute_400_minus_100": -3.0599999999999996,
+      "percent_change_from_100": -46.64634146341463
+    },
+    "ok_rps": {
+      "gogc100": 99.8,
+      "gogc400": 99.8,
+      "absolute_400_minus_100": 0.0,
+      "percent_change_from_100": 0.0
+    }
+  }
+}

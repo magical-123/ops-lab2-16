@@ -400,10 +400,30 @@ R1 第一个不达标阶段是**阶段 6**（target_rps=346），客户端 slo_g
 
 | 选做 | 完成情况与证据 |
 |---|---|
-| O1 内存与 GC | 尚未执行；等待必做压测结束后的独占窗口。测前计划见 [`docs/A-O1-plan.md`](docs/A-O1-plan.md)。 |
+| O1 内存与 GC | 已完成。相同 100 rps 下，GOGC 100→400：GC 次数增量 5989→1497，GC CPU 估计增量 2.213599→0.546274 s；RSS 均值 11.283622→25.987863 MiB，客户端 p99 6.56→3.50 ms。原始证据与解释见下文及 [`docs/A-O1-results.md`](docs/A-O1-results.md)。 |
 | O2 网络 | 服务机与压测机位于同一 VPC，通过内网相连；<br>在 rps 为 525 时出现错误和 p99 跳变（见 `runs/o2-net-02/loadgen.log` ），同时 sar 记录的 txkB/s 从平稳变为逐渐增加（见 `runs/o2-net-02-server/server-sar.log` 12:17:35 AM 至 12:18:05 AM 间的数据），说明此时达到上限，请求开始堆积；<br>由 525 rps 计算得最大带宽为 525 * 256 kB * 8 = 1.08 Gbps，与云主机官网标称的 1 Gibps 几乎一致 |
 | O3 告警与看板 | ✅ 已完成。规则文件：`deploy/rules.yml`；触发记录：`runs/o3-burn/alerts.json`（状态 `firing`，activeAt: 2026-10-29T12:43:03Z）；看板九格查询见下方。 |
 | O4 迁移到小组项目 | <未做 / 仓库链接、测了哪个资源、结论> |
+
+### O1 内存与 GC
+
+测前预测保留在 [`docs/A-O1-plan.md`](docs/A-O1-plan.md)，已于测量前的 `e925c69` 提交，不回改原文。2026-10-29 在主机一依次以 GOGC=100、400 重启服务，各先预热 10 秒，再对 `/api/report?mb=4`（每请求分配 4 MiB 临时内存）正式测量 60 秒。Go 1.27.3，服务 GOMAXPROCS=1、绑 CPU 1，客户端绑 CPU 0；两组均为 Poisson 到达、目标 100 rps、超时 2 秒，其他 `/config` 参数一致。
+
+| 指标 | GOGC=100 | GOGC=400 |
+|---|---:|---:|
+| 实际成功 RPS / 成功数 | 99.8 / 5989 | 99.8 / 5989 |
+| 错误数 / dropped | 0 / 0 | 0 / 0 |
+| `go_gc_cycles_total` 起点→终点（增量） | 998→6987（5989） | 249→1746（1497） |
+| `go_gc_cpu_seconds_total` 增量（s） | 2.213598725 | 0.546273620 |
+| `process_resident_memory_bytes` 求值点均值 / 峰值（MiB） | 11.283622 / 13.707031 | 25.987863 / 26.011719 |
+| 客户端 p99（ms） | 6.56 | 3.50 |
+| 客户端 lag p99（ms） / CPU（%） | 1.07 / 3 | 1.07 / 2 |
+
+数据来自 [`runs/o1-gogc100/`](runs/o1-gogc100/) 与 [`runs/o1-gogc400/`](runs/o1-gogc400/)：客户端取 `steps.csv`；GC 在各自进程的 `metrics-end.txt` 与 `metrics-start.txt` 内做差，预热不混入；RSS 从 `rss-query.json` 重算并核对 `rss-summary.json`。可运行 `python3 -B scripts/summarize-o1.py` 复算，派生值见 [`summary.json`](runs/o1-evidence/summary.json)。
+
+本次以 **RSS 均值增加 14.704241 MiB（+130.31%）**为代价，观察到 **GC 次数减少 75.00%、GC CPU 估计增量减少 75.32%、客户端 p99 降低 46.65%**；实际吞吐相同，没有把限速 100 rps 下的结果写成吞吐上限提高。这与测前预测一致，也对应 L-06 第 12 页 JVM 堆与 GC 的内存、回收频率取舍。GOGC 控制目标堆增长比例，不等同于 JVM 最大堆参数，也不代表 RSS 必须增至四倍。[Go GC Guide](https://go.dev/doc/gc-guide#GOGC) 说明了这一机制。
+
+口径限制：客户端统计完整 60 秒；GC 快照包围该阶段并包含采集准备、排空和额外 1 秒等待，约 61.02 秒；RSS 去掉前 5 秒，取 55 秒跨度内 56 个 1 秒查询求值点，峰值不是瞬时高水位。GC CPU 是运行时估计且含空闲标记，不能当作暂停时间或直接换算成操作系统 CPU 占比，见 [runtime/metrics](https://pkg.go.dev/runtime/metrics)。每种设置只有一次测量，顺序未交错，完整环境与构建哈希未留存，因此报告本次现象，不把全部尾延迟改善归因于 GC。完整方法、预测追溯和校验命令见 [`docs/A-O1-results.md`](docs/A-O1-results.md)。
 
 ### O3 看板九格查询
 
@@ -421,5 +441,5 @@ R1 第一个不达标阶段是**阶段 6**（target_rps=346），客户端 slo_g
 
 | GitHub 用户名 | 负责的部分 |
 |---|---|
-| magical-123 | A（组长）：环境与任务 0、问题 2 已完成；O1 待必做压测完成；仓库和主机协调。其余四位 GitHub 用户名由 E 汇总补入。 |
+| magical-123 | A（组长）：环境与任务 0、问题 2、选做 O1 已完成；仓库和主机协调。其余四位 GitHub 用户名由 E 汇总补入。 |
 | rbhd-sjtu | 任务 3；问题 3；选做 O2 |
