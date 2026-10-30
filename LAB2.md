@@ -288,7 +288,17 @@ W2 的到达率：209,418,523,785,1046,1569,2092
 
 **问题 2：利用率不等于饱和。** R1 达到上限时，enrolld 所在核的 CPU 利用率是多少？哪个数值最先表明资源已经饱和？R2 中 CPU 利用率接近 100% 时，内核层的 `procs_running_avg`、`cpu_psi_some`、`cpu_wait_threads` 和 Go 运行时层的 `sched_wait_p99_ms` 分别如何变化？为什么内核层几乎观察不到排队，排队发生在哪里？这与 L-06 第 16、17 页 Tomcat 的线程池有何相同之处？最后用 Little's Law 核对：从 R1 选取三个阶段，用 `server_rps × server_mean_ms` 计算在途请求数，并与 `inflight_avg` 比较；W 为什么必须用平均值而不能用 p99？哪个阶段不一致，原因是什么？
 
-**所用数据：** R1 引用第 4.2 节及 [`red.csv`](runs/r1-pool4/red.csv)、[`use.csv`](runs/r1-pool4/use.csv)、[`steps.csv`](runs/r1-pool4/steps.csv) 第 2、6–9 阶段；R2 引用第 4.4 节及对应的 [`red.csv`](runs/r2-pool40/red.csv)、[`use.csv`](runs/r2-pool40/use.csv) 第 2、6–8 阶段。两次的 `meta.txt` 均记录 enrolld 绑 CPU 1、`GOMAXPROCS=1`，池分别为 4、40。Little 定律使用 R1 第 1、5、7 阶段，三项输入均取同一行 `red.csv`；RPS 与平均耗时统计所有状态码的完成请求，`inflight_avg` 统计在途请求。
+**所用数据：** R1 引用第 4.2 节及 [`red.csv`](runs/r1-pool4/red.csv)、[`use.csv`](runs/r1-pool4/use.csv)、[`steps.csv`](runs/r1-pool4/steps.csv) 第 2、6–9 阶段；R2 采用 [`meta.txt`](runs/r2-pool40/meta.txt) 所记 **2026-10-29 22:56:40（北京时间）**的复测，引用第 4.4 节及对应的 [`red.csv`](runs/r2-pool40/red.csv)、[`use.csv`](runs/r2-pool40/use.csv) 第 2–6 阶段分析趋势，第 7 阶段单列为过载证据。两次均为 enrolld 绑 CPU 1、`GOMAXPROCS=1`，池分别为 4、40。Little 定律仍用 R1 第 1、5、7 阶段同一行 `red.csv`；RPS 与平均耗时统计所有状态码的完成请求，`inflight_avg` 统计在途请求。
+
+**R2 阶段核对：** 下表由 `scripts/table.sh runs/r2-pool40 svc_cpu_busy procs_running_avg cpu_psi_some cpu_wait_threads sched_wait_p99_ms pool_in_use_avg pool_wait_p99_ms` 生成，摘录第 2、6、7 阶段；`svc_cpu_busy`、`cpu_psi_some` 为 0–1 的比例。
+
+| step | target_rps | svc_cpu_busy | procs_running_avg | cpu_psi_some | cpu_wait_threads | sched_wait_p99_ms | pool_in_use_avg | pool_wait_p99_ms |
+|---|---|---|---|---|---|---|---|---|
+| 2 | 1133 | 0.533 | 3.2 | 0.280436 | 0.31859 | 1.64135 | 13 | 0.99 |
+| 6 | 2077 | 0.914 | 3.2 | 0.0672482 | 0.0263136 | 12.9184 | 20.88 | 0.99 |
+| 7 | 2360 | 0.999 | 2.8 | 0.0973688 | 0.0193259 | 1000 | 35 | 1977.18 |
+
+第 7 阶段的客户端错误率 **74.28%**、发送滞后 p99 **91.25 ms** 取自 [`steps.csv`](runs/r2-pool40/steps.csv)；[`loadgen.log`](runs/r2-pool40/loadgen.log) 记录 `stop-below` 提前停止。计划最高为 1.5 倍（2832 请求/秒），实际只执行到第 7 阶段的 1.25 倍，第 8 阶段未执行。该阶段 Go 调度 p99 显示 1000 ms，受本项目最高有限桶 1 秒的限制，不能当作精确值（[Prometheus 分位数规则](https://prometheus.io/docs/prometheus/latest/querying/functions/#histogram_quantile)）。
 
 **Little 定律核算（派生值）：** `L = server_rps × server_mean_ms / 1000`；相对差异为 `(L - inflight_avg) / inflight_avg`。
 
@@ -300,11 +310,13 @@ W2 的到达率：209,418,523,785,1046,1569,2092
 
 **分析：**
 
-R1 第 7 阶段服务核 CPU 仅 19.90%，池却已占满 4 个连接，成功吞吐为 383.5 请求/秒；继续加压后吞吐不再增长。最早的等待预警是连接等待 p99：第 2 阶段已为 8.00 ms，第 6 阶段增至 70.49 ms；到第 7 阶段达 997.28 ms，结合池占满与吞吐平台确认饱和。出现等待不等于已达硬上限；模拟查询占着连接休眠，CPU 空闲不能代表连接池有余量。
+R1 第 7 阶段 CPU 仅 19.90%，池占满 4 个连接，连接等待 p99 达 997.28 ms，成功吞吐 383.5 请求/秒且继续加压不再增长。等待预警先于硬上限：第 2 阶段 8.00 ms，第 6 阶段 70.49 ms。模拟查询占连接休眠，CPU 空闲不能代表池有余量。
 
-R2 第 2→8 阶段 CPU 从 44.95% 升至 99.35%，`procs_running_avg` 从 1.8 到 3.0（第 6 阶段为 3.6，非单调）；`cpu_psi_some` 从 29.20% 降至 4.17%，`cpu_wait_threads` 从 0.336869 降至 0.005899，而 `sched_wait_p99_ms` 从 1.18 升至 175.57 ms。池仅占 23.8/40，连接等待 p99 仍约 0.99 ms。内核指标未反映同幅度排队；可运行 goroutine 主要等待 Go 执行资源，内核只见少量可运行线程。整机队列和 PSI 还含其他进程。这与 Tomcat 有限工作线程前的应用层排队相似。
+新版 R2 第 2→6 阶段 CPU 53.30%→91.40%，运行队列均值从 3.2 降至 2 再回 3.2；PSI 从 28.04% 降至 6.72%，线程等待量从 0.31859 降至 0.026314，Go 调度等待 p99 从 1.64 升至 12.92 ms。池仅 20.88/40 且连接等待约 0.99 ms，支持 CPU 压力增强、排队主要积累在 Go 层。GOMAXPROCS=1 限制 Go 并行度，内核只见少量可运行线程，整机队列与 PSI 还含其他进程；与 Tomcat 有限工作线程前的任务排队相似。各层指标的对象不同，内核等待下降不能解释成服务没有饱和，也不应预设所有等待指标都随 CPU 增长。
 
-Little 定律第 5 阶段最吻合；第 1 阶段相对差异最大，绝对仅差 0.272 个请求，可能源于低在途数的一秒抽样。第 7 阶段偏差可由过载过渡、跨窗口未完成请求解释。核对须同接口、同窗口且近似稳态；25 秒窗口与瞬时采样只能近似长期均值。W 必须用平均停留时间，p99 无法代表全部请求的累计停留时间。
+R2 第 7 阶段 CPU 99.90%，客户端错误 74.28%、发送滞后 91.25 ms，连接等待 1977.18 ms，已是多层过载，仅作边界证据；第 8 阶段未执行。
+
+Little 核对中，R1 第 5 阶段吻合；第 1 阶段相对差异最大但仅差 0.272，可能源于低在途抽样；第 7 阶段可能受过载过渡和跨窗请求影响。须同接口、同窗口且近似稳态。W 须用平均值还原累计停留时间，p99 不能替代。
 
 指标定义核对：[Go 调度延迟](https://pkg.go.dev/runtime/metrics#hdr-Supported_metrics)、[Linux PSI](https://www.kernel.org/doc/html/v6.6/accounting/psi.html)、[Tomcat 工作线程与任务队列](https://tomcat.apache.org/tomcat-10.1-doc/config/http.html)。本组数值均来自上述 CSV。
 
