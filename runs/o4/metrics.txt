@@ -1,0 +1,822 @@
+# HELP jvm_buffer_memory_used_bytes An estimate of the memory that the Java virtual machine is using for this buffer pool
+# TYPE jvm_buffer_memory_used_bytes gauge
+jvm_buffer_memory_used_bytes{application="infodigest-backend",id="mapped - 'non-volatile memory'",} 0.0
+jvm_buffer_memory_used_bytes{application="infodigest-backend",id="mapped",} 0.0
+jvm_buffer_memory_used_bytes{application="infodigest-backend",id="direct",} 1.3077165E7
+# HELP spring_security_filterchains_header_after_total  
+# TYPE spring_security_filterchains_header_after_total counter
+spring_security_filterchains_header_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP jvm_info JVM version info
+# TYPE jvm_info gauge
+jvm_info{application="infodigest-backend",runtime="OpenJDK Runtime Environment",vendor="Ubuntu",version="17.0.20.1+1-1-24.04-Ubuntu",} 1.0
+# HELP spring_security_filterchains_session_management_after_total  
+# TYPE spring_security_filterchains_session_management_after_total counter
+spring_security_filterchains_session_management_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP executor_pool_core_threads The core number of threads for the pool
+# TYPE executor_pool_core_threads gauge
+executor_pool_core_threads{application="infodigest-backend",name="aiSummaryExecutor",} 8.0
+executor_pool_core_threads{application="infodigest-backend",name="taskScheduler",} 1.0
+# HELP jdbc_connections_min Minimum number of idle connections in the pool.
+# TYPE jdbc_connections_min gauge
+jdbc_connections_min{application="infodigest-backend",name="dataSource",} 2.0
+# HELP spring_security_filterchains_active_seconds_max  
+# TYPE spring_security_filterchains_active_seconds_max gauge
+spring_security_filterchains_active_seconds_max{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 0.0
+spring_security_filterchains_active_seconds_max{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 0.0
+# HELP spring_security_filterchains_active_seconds  
+# TYPE spring_security_filterchains_active_seconds summary
+spring_security_filterchains_active_seconds_active_count{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 0.0
+spring_security_filterchains_active_seconds_duration_sum{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 0.0
+spring_security_filterchains_active_seconds_active_count{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 0.0
+spring_security_filterchains_active_seconds_duration_sum{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 0.0
+# HELP hikaricp_connections_pending Pending threads
+# TYPE hikaricp_connections_pending gauge
+hikaricp_connections_pending{application="infodigest-backend",pool="HikariPool-1",} 0.0
+# HELP jvm_buffer_total_capacity_bytes An estimate of the total capacity of the buffers in this pool
+# TYPE jvm_buffer_total_capacity_bytes gauge
+jvm_buffer_total_capacity_bytes{application="infodigest-backend",id="mapped - 'non-volatile memory'",} 0.0
+jvm_buffer_total_capacity_bytes{application="infodigest-backend",id="mapped",} 0.0
+jvm_buffer_total_capacity_bytes{application="infodigest-backend",id="direct",} 1.3077164E7
+# HELP process_cpu_usage The "recent cpu usage" for the Java Virtual Machine process
+# TYPE process_cpu_usage gauge
+process_cpu_usage{application="infodigest-backend",} 0.014057606001078691
+# HELP spring_security_http_secured_requests_seconds  
+# TYPE spring_security_http_secured_requests_seconds summary
+spring_security_http_secured_requests_seconds_count{application="infodigest-backend",error="ClientAbortException",} 10311.0
+spring_security_http_secured_requests_seconds_sum{application="infodigest-backend",error="ClientAbortException",} 865.408450619
+spring_security_http_secured_requests_seconds_count{application="infodigest-backend",error="none",} 329421.0
+spring_security_http_secured_requests_seconds_sum{application="infodigest-backend",error="none",} 9102.576261917
+# HELP spring_security_http_secured_requests_seconds_max  
+# TYPE spring_security_http_secured_requests_seconds_max gauge
+spring_security_http_secured_requests_seconds_max{application="infodigest-backend",error="ClientAbortException",} 0.0
+spring_security_http_secured_requests_seconds_max{application="infodigest-backend",error="none",} 6.18975E-4
+# HELP spring_security_filterchains_JwtAuthenticationFilter_before_total  
+# TYPE spring_security_filterchains_JwtAuthenticationFilter_before_total counter
+spring_security_filterchains_JwtAuthenticationFilter_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP jvm_gc_overhead_percent An approximation of the percent of CPU time used by GC activities over the last lookback period or since monitoring began, whichever is shorter, in the range [0..1]
+# TYPE jvm_gc_overhead_percent gauge
+jvm_gc_overhead_percent{application="infodigest-backend",} 0.0
+# HELP tomcat_sessions_active_max_sessions  
+# TYPE tomcat_sessions_active_max_sessions gauge
+tomcat_sessions_active_max_sessions{application="infodigest-backend",} 0.0
+# HELP spring_security_filterchains_header_before_total  
+# TYPE spring_security_filterchains_header_before_total counter
+spring_security_filterchains_header_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP executor_active_threads The approximate number of threads that are actively executing tasks
+# TYPE executor_active_threads gauge
+executor_active_threads{application="infodigest-backend",name="aiSummaryExecutor",} 0.0
+executor_active_threads{application="infodigest-backend",name="taskScheduler",} 0.0
+# HELP spring_security_filterchains_logout_before_total  
+# TYPE spring_security_filterchains_logout_before_total counter
+spring_security_filterchains_logout_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP spring_security_filterchains_JwtAuthenticationFilter_after_total  
+# TYPE spring_security_filterchains_JwtAuthenticationFilter_after_total counter
+spring_security_filterchains_JwtAuthenticationFilter_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP spring_security_http_secured_requests_active_seconds  
+# TYPE spring_security_http_secured_requests_active_seconds summary
+spring_security_http_secured_requests_active_seconds_active_count{application="infodigest-backend",} 1.0
+spring_security_http_secured_requests_active_seconds_duration_sum{application="infodigest-backend",} 0.001731192
+# HELP spring_security_http_secured_requests_active_seconds_max  
+# TYPE spring_security_http_secured_requests_active_seconds_max gauge
+spring_security_http_secured_requests_active_seconds_max{application="infodigest-backend",} 0.001737704
+# HELP jdbc_connections_max Maximum number of active connections that can be allocated at the same time.
+# TYPE jdbc_connections_max gauge
+jdbc_connections_max{application="infodigest-backend",name="dataSource",} 10.0
+# HELP tomcat_sessions_rejected_sessions_total  
+# TYPE tomcat_sessions_rejected_sessions_total counter
+tomcat_sessions_rejected_sessions_total{application="infodigest-backend",} 0.0
+# HELP spring_security_filterchains_authorization_after_total  
+# TYPE spring_security_filterchains_authorization_after_total counter
+spring_security_filterchains_authorization_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 329421.0
+# HELP jvm_threads_states_threads The current number of threads
+# TYPE jvm_threads_states_threads gauge
+jvm_threads_states_threads{application="infodigest-backend",state="new",} 0.0
+jvm_threads_states_threads{application="infodigest-backend",state="runnable",} 17.0
+jvm_threads_states_threads{application="infodigest-backend",state="blocked",} 0.0
+jvm_threads_states_threads{application="infodigest-backend",state="waiting",} 6.0
+jvm_threads_states_threads{application="infodigest-backend",state="timed-waiting",} 67.0
+jvm_threads_states_threads{application="infodigest-backend",state="terminated",} 0.0
+# HELP spring_security_filterchains_session_management_before_total  
+# TYPE spring_security_filterchains_session_management_before_total counter
+spring_security_filterchains_session_management_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP jvm_gc_memory_promoted_bytes_total Count of positive increases in the size of the old generation memory pool before GC to after GC
+# TYPE jvm_gc_memory_promoted_bytes_total counter
+jvm_gc_memory_promoted_bytes_total{application="infodigest-backend",} 1.895783424E9
+# HELP disk_free_bytes Usable space for path
+# TYPE disk_free_bytes gauge
+disk_free_bytes{application="infodigest-backend",path="/srv/lab2/se26-o4/backend/.",} 3.1843258368E10
+# HELP jvm_gc_memory_allocated_bytes_total Incremented for an increase in the size of the (young) heap memory pool after one GC to before the next
+# TYPE jvm_gc_memory_allocated_bytes_total counter
+jvm_gc_memory_allocated_bytes_total{application="infodigest-backend",} 3.074738752E10
+# HELP jvm_buffer_count_buffers An estimate of the number of buffers in the pool
+# TYPE jvm_buffer_count_buffers gauge
+jvm_buffer_count_buffers{application="infodigest-backend",id="mapped - 'non-volatile memory'",} 0.0
+jvm_buffer_count_buffers{application="infodigest-backend",id="mapped",} 0.0
+jvm_buffer_count_buffers{application="infodigest-backend",id="direct",} 65.0
+# HELP spring_security_filterchains_access_exceptions_before_total  
+# TYPE spring_security_filterchains_access_exceptions_before_total counter
+spring_security_filterchains_access_exceptions_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP spring_security_filterchains_logout_after_total  
+# TYPE spring_security_filterchains_logout_after_total counter
+spring_security_filterchains_logout_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP spring_security_filterchains_authorization_before_total  
+# TYPE spring_security_filterchains_authorization_before_total counter
+spring_security_filterchains_authorization_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP spring_security_filterchains_context_async_after_total  
+# TYPE spring_security_filterchains_context_async_after_total counter
+spring_security_filterchains_context_async_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP application_ready_time_seconds Time taken for the application to be ready to service requests
+# TYPE application_ready_time_seconds gauge
+application_ready_time_seconds{application="infodigest-backend",main_application_class="com.infodigest.InfoDigestApplication",} 19.421
+# HELP spring_security_filterchains_context_servlet_before_total  
+# TYPE spring_security_filterchains_context_servlet_before_total counter
+spring_security_filterchains_context_servlet_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP jvm_gc_live_data_size_bytes Size of long-lived heap memory pool after reclamation
+# TYPE jvm_gc_live_data_size_bytes gauge
+jvm_gc_live_data_size_bytes{application="infodigest-backend",} 4.360064E8
+# HELP jvm_classes_unloaded_classes_total The total number of classes unloaded since the Java virtual machine has started execution
+# TYPE jvm_classes_unloaded_classes_total counter
+jvm_classes_unloaded_classes_total{application="infodigest-backend",} 152.0
+# HELP hikaricp_connections_max Max connections
+# TYPE hikaricp_connections_max gauge
+hikaricp_connections_max{application="infodigest-backend",pool="HikariPool-1",} 10.0
+# HELP spring_security_filterchains_context_holder_after_total  
+# TYPE spring_security_filterchains_context_holder_after_total counter
+spring_security_filterchains_context_holder_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP tomcat_sessions_expired_sessions_total  
+# TYPE tomcat_sessions_expired_sessions_total counter
+tomcat_sessions_expired_sessions_total{application="infodigest-backend",} 0.0
+# HELP jvm_compilation_time_ms_total The approximate accumulated elapsed time spent in compilation
+# TYPE jvm_compilation_time_ms_total counter
+jvm_compilation_time_ms_total{application="infodigest-backend",compiler="HotSpot 64-Bit Tiered Compilers",} 124446.0
+# HELP process_uptime_seconds The uptime of the Java virtual machine
+# TYPE process_uptime_seconds gauge
+process_uptime_seconds{application="infodigest-backend",} 9893.898
+# HELP tomcat_sessions_alive_max_seconds  
+# TYPE tomcat_sessions_alive_max_seconds gauge
+tomcat_sessions_alive_max_seconds{application="infodigest-backend",} 0.0
+# HELP jvm_memory_max_bytes The maximum amount of memory in bytes that can be used for memory management
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 1.22916864E8
+jvm_memory_max_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'non-nmethods'",} 5828608.0
+jvm_memory_max_bytes{application="infodigest-backend",area="nonheap",id="Metaspace",} -1.0
+jvm_memory_max_bytes{application="infodigest-backend",area="nonheap",id="Compressed Class Space",} 1.073741824E9
+jvm_memory_max_bytes{application="infodigest-backend",area="heap",id="G1 Eden Space",} -1.0
+jvm_memory_max_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'profiled nmethods'",} 1.22912768E8
+jvm_memory_max_bytes{application="infodigest-backend",area="heap",id="G1 Survivor Space",} -1.0
+jvm_memory_max_bytes{application="infodigest-backend",area="heap",id="G1 Old Gen",} 9.26941184E8
+# HELP jvm_threads_daemon_threads The current number of live daemon threads
+# TYPE jvm_threads_daemon_threads gauge
+jvm_threads_daemon_threads{application="infodigest-backend",} 74.0
+# HELP hikaricp_connections_usage_seconds Connection usage time
+# TYPE hikaricp_connections_usage_seconds summary
+hikaricp_connections_usage_seconds_count{application="infodigest-backend",pool="HikariPool-1",} 329904.0
+hikaricp_connections_usage_seconds_sum{application="infodigest-backend",pool="HikariPool-1",} 599.667
+# HELP hikaricp_connections_usage_seconds_max Connection usage time
+# TYPE hikaricp_connections_usage_seconds_max gauge
+hikaricp_connections_usage_seconds_max{application="infodigest-backend",pool="HikariPool-1",} 0.003
+# HELP spring_data_repository_invocations_seconds_max Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds_max gauge
+spring_data_repository_invocations_seconds_max{application="infodigest-backend",exception="None",method="findAll",repository="UserRepository",state="SUCCESS",} 0.001737812
+spring_data_repository_invocations_seconds_max{application="infodigest-backend",exception="None",method="findAll",repository="AIConfigRepository",state="SUCCESS",} 0.0
+# HELP spring_data_repository_invocations_seconds Duration of repository invocations
+# TYPE spring_data_repository_invocations_seconds summary
+spring_data_repository_invocations_seconds_count{application="infodigest-backend",exception="None",method="findAll",repository="UserRepository",state="SUCCESS",} 7.0
+spring_data_repository_invocations_seconds_sum{application="infodigest-backend",exception="None",method="findAll",repository="UserRepository",state="SUCCESS",} 0.014659954
+spring_data_repository_invocations_seconds_count{application="infodigest-backend",exception="None",method="findAll",repository="AIConfigRepository",state="SUCCESS",} 34.0
+spring_data_repository_invocations_seconds_sum{application="infodigest-backend",exception="None",method="findAll",repository="AIConfigRepository",state="SUCCESS",} 0.171495858
+# HELP executor_pool_size_threads The current number of threads in the pool
+# TYPE executor_pool_size_threads gauge
+executor_pool_size_threads{application="infodigest-backend",name="aiSummaryExecutor",} 0.0
+executor_pool_size_threads{application="infodigest-backend",name="taskScheduler",} 1.0
+# HELP system_cpu_usage The "recent cpu usage" of the system the application is running in
+# TYPE system_cpu_usage gauge
+system_cpu_usage{application="infodigest-backend",} 0.040699515579152586
+# HELP system_load_average_1m The sum of the number of runnable entities queued to available processors and the number of runnable entities running on the available processors averaged over a period of time
+# TYPE system_load_average_1m gauge
+system_load_average_1m{application="infodigest-backend",} 0.12939453125
+# HELP jvm_memory_committed_bytes The amount of memory in bytes that is committed for the Java virtual machine to use
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 1.2058624E7
+jvm_memory_committed_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'non-nmethods'",} 2555904.0
+jvm_memory_committed_bytes{application="infodigest-backend",area="nonheap",id="Metaspace",} 1.04792064E8
+jvm_memory_committed_bytes{application="infodigest-backend",area="nonheap",id="Compressed Class Space",} 1.409024E7
+jvm_memory_committed_bytes{application="infodigest-backend",area="heap",id="G1 Eden Space",} 2.5690112E8
+jvm_memory_committed_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'profiled nmethods'",} 2.2216704E7
+jvm_memory_committed_bytes{application="infodigest-backend",area="heap",id="G1 Survivor Space",} 2097152.0
+jvm_memory_committed_bytes{application="infodigest-backend",area="heap",id="G1 Old Gen",} 2.5165824E8
+# HELP spring_security_authorizations_active_seconds_max  
+# TYPE spring_security_authorizations_active_seconds_max gauge
+spring_security_authorizations_active_seconds_max{application="infodigest-backend",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request",} 0.0
+# HELP spring_security_authorizations_active_seconds  
+# TYPE spring_security_authorizations_active_seconds summary
+spring_security_authorizations_active_seconds_active_count{application="infodigest-backend",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request",} 0.0
+spring_security_authorizations_active_seconds_duration_sum{application="infodigest-backend",spring_security_authentication_type="n/a",spring_security_authorization_decision="unknown",spring_security_object="request",} 0.0
+# HELP spring_security_filterchains_authentication_anonymous_before_total  
+# TYPE spring_security_filterchains_authentication_anonymous_before_total counter
+spring_security_filterchains_authentication_anonymous_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP jvm_classes_loaded_classes The number of classes that are currently loaded in the Java virtual machine
+# TYPE jvm_classes_loaded_classes gauge
+jvm_classes_loaded_classes{application="infodigest-backend",} 19553.0
+# HELP jvm_memory_usage_after_gc_percent The percentage of long-lived heap pool used after the last GC event, in the range [0..1]
+# TYPE jvm_memory_usage_after_gc_percent gauge
+jvm_memory_usage_after_gc_percent{application="infodigest-backend",area="heap",pool="long-lived",} 0.5631313410279978
+# HELP spring_security_filterchains_authentication_anonymous_after_total  
+# TYPE spring_security_filterchains_authentication_anonymous_after_total counter
+spring_security_filterchains_authentication_anonymous_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP http_server_requests_seconds  
+# TYPE http_server_requests_seconds histogram
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001",} 137.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001048576",} 157.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001398101",} 251.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001747626",} 328.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.002097151",} 393.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.002446676",} 446.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.002796201",} 512.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.003145726",} 588.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.003495251",} 671.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.003844776",} 743.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.004194304",} 844.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.005592405",} 1153.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.006990506",} 1494.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.008388607",} 1785.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.009786708",} 2132.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.011184809",} 2459.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.01258291",} 2792.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.013981011",} 3037.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.015379112",} 3299.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.016777216",} 3552.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.022369621",} 4366.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.027962026",} 5007.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.033554431",} 5430.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.039146836",} 5805.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.044739241",} 6055.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.050331646",} 6287.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.055924051",} 6501.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.061516456",} 6671.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.067108864",} 6835.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.089478485",} 7401.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.111848106",} 7814.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.134217727",} 8098.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.156587348",} 8388.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.178956969",} 8634.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.20132659",} 8828.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.223696211",} 9008.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.246065832",} 9165.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.268435456",} 9314.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.357913941",} 9731.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.447392426",} 10020.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.536870911",} 10139.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.626349396",} 10218.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.715827881",} 10259.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.805306366",} 10283.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.894784851",} 10297.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.984263336",} 10302.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="1.073741824",} 10306.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="1.431655765",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="1.789569706",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="2.147483647",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="2.505397588",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="2.863311529",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="3.22122547",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="3.579139411",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="3.937053352",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="4.294967296",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="5.726623061",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="7.158278826",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="8.589934591",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="10.021590356",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="11.453246121",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="12.884901886",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="14.316557651",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="15.748213416",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="17.179869184",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="22.906492245",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="28.633115306",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="30.0",} 10308.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="+Inf",} 10308.0
+http_server_requests_seconds_count{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",} 10308.0
+http_server_requests_seconds_sum{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",} 910.851745816
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001",} 132835.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001048576",} 136722.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001398101",} 156144.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.001747626",} 167879.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.002097151",} 176090.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.002446676",} 182341.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.002796201",} 187318.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.003145726",} 191646.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.003495251",} 195356.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.003844776",} 198767.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.004194304",} 201986.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.005592405",} 213349.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.006990506",} 223161.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.008388607",} 231697.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.009786708",} 239016.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.011184809",} 245317.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.01258291",} 250420.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.013981011",} 254754.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.015379112",} 258145.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.016777216",} 260852.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.022369621",} 267837.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.027962026",} 271673.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.033554431",} 274243.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.039146836",} 276190.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.044739241",} 277747.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.050331646",} 279152.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.055924051",} 280387.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.061516456",} 281408.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.067108864",} 282480.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.089478485",} 287056.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.111848106",} 289784.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.134217727",} 292139.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.156587348",} 296855.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.178956969",} 300820.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.20132659",} 302945.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.223696211",} 305385.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.246065832",} 308223.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.268435456",} 309969.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.357913941",} 315068.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.447392426",} 317584.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.536870911",} 318657.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.626349396",} 319115.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.715827881",} 319337.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.805306366",} 319447.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.894784851",} 319505.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="0.984263336",} 319525.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="1.073741824",} 319540.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="1.431655765",} 319555.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="1.789569706",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="2.147483647",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="2.505397588",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="2.863311529",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="3.22122547",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="3.579139411",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="3.937053352",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="4.294967296",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="5.726623061",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="7.158278826",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="8.589934591",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="10.021590356",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="11.453246121",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="12.884901886",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="14.316557651",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="15.748213416",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="17.179869184",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="22.906492245",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="28.633115306",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="30.0",} 319556.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",le="+Inf",} 319556.0
+http_server_requests_seconds_count{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",} 319556.0
+http_server_requests_seconds_sum{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",} 9449.54226112
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.001",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.001048576",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.001398101",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.001747626",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.002097151",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.002446676",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.002796201",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.003145726",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.003495251",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.003844776",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.004194304",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.005592405",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.006990506",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.008388607",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.009786708",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.011184809",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.01258291",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.013981011",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.015379112",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.016777216",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.022369621",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.027962026",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.033554431",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.039146836",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.044739241",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.050331646",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.055924051",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.061516456",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.067108864",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.089478485",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.111848106",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.134217727",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.156587348",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.178956969",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.20132659",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.223696211",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.246065832",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.268435456",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.357913941",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.447392426",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.536870911",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.626349396",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.715827881",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.805306366",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.894784851",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="0.984263336",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="1.073741824",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="1.431655765",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="1.789569706",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="2.147483647",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="2.505397588",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="2.863311529",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="3.22122547",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="3.579139411",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="3.937053352",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="4.294967296",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="5.726623061",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="7.158278826",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="8.589934591",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="10.021590356",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="11.453246121",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="12.884901886",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="14.316557651",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="15.748213416",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="17.179869184",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="22.906492245",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="28.633115306",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="30.0",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",le="+Inf",} 1.0
+http_server_requests_seconds_count{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",} 1.0
+http_server_requests_seconds_sum{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",} 0.001696759
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001048576",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001398101",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.001747626",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.002097151",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.002446676",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.002796201",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.003145726",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.003495251",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.003844776",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.004194304",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.005592405",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.006990506",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.008388607",} 0.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.009786708",} 1.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.011184809",} 2.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.01258291",} 3.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.013981011",} 3.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.015379112",} 3.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.016777216",} 4.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.022369621",} 4.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.027962026",} 4.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.033554431",} 4.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.039146836",} 5.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.044739241",} 5.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.050331646",} 5.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.055924051",} 5.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.061516456",} 5.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.067108864",} 5.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.089478485",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.111848106",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.134217727",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.156587348",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.178956969",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.20132659",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.223696211",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.246065832",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.268435456",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.357913941",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.447392426",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.536870911",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.626349396",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.715827881",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.805306366",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.894784851",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="0.984263336",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="1.073741824",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="1.431655765",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="1.789569706",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="2.147483647",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="2.505397588",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="2.863311529",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="3.22122547",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="3.579139411",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="3.937053352",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="4.294967296",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="5.726623061",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="7.158278826",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="8.589934591",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="10.021590356",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="11.453246121",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="12.884901886",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="14.316557651",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="15.748213416",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="17.179869184",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="22.906492245",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="28.633115306",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="30.0",} 6.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",le="+Inf",} 6.0
+http_server_requests_seconds_count{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",} 6.0
+http_server_requests_seconds_sum{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",} 0.15920081
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.001",} 9511.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.001048576",} 9551.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.001398101",} 9692.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.001747626",} 9747.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.002097151",} 9763.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.002446676",} 9785.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.002796201",} 9799.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.003145726",} 9808.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.003495251",} 9813.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.003844776",} 9816.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.004194304",} 9822.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.005592405",} 9831.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.006990506",} 9834.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.008388607",} 9837.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.009786708",} 9843.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.011184809",} 9850.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.01258291",} 9853.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.013981011",} 9854.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.015379112",} 9855.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.016777216",} 9855.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.022369621",} 9858.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.027962026",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.033554431",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.039146836",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.044739241",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.050331646",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.055924051",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.061516456",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.067108864",} 9860.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.089478485",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.111848106",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.134217727",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.156587348",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.178956969",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.20132659",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.223696211",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.246065832",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.268435456",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.357913941",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.447392426",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.536870911",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.626349396",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.715827881",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.805306366",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.894784851",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="0.984263336",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="1.073741824",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="1.431655765",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="1.789569706",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="2.147483647",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="2.505397588",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="2.863311529",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="3.22122547",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="3.579139411",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="3.937053352",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="4.294967296",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="5.726623061",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="7.158278826",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="8.589934591",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="10.021590356",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="11.453246121",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="12.884901886",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="14.316557651",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="15.748213416",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="17.179869184",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="22.906492245",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="28.633115306",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="30.0",} 9861.0
+http_server_requests_seconds_bucket{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",le="+Inf",} 9861.0
+http_server_requests_seconds_count{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",} 9861.0
+http_server_requests_seconds_sum{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",} 5.665620673
+# HELP http_server_requests_seconds_max  
+# TYPE http_server_requests_seconds_max gauge
+http_server_requests_seconds_max{application="infodigest-backend",error="IOException",exception="IOException",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",} 0.0
+http_server_requests_seconds_max{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/api/health/db",} 0.0
+http_server_requests_seconds_max{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="/api/user/profile",} 0.0
+http_server_requests_seconds_max{application="infodigest-backend",error="none",exception="none",method="GET",outcome="SUCCESS",status="200",uri="/actuator/prometheus",} 0.0
+http_server_requests_seconds_max{application="infodigest-backend",error="none",exception="none",method="GET",outcome="CLIENT_ERROR",status="403",uri="UNKNOWN",} 6.42345E-4
+# HELP tasks_scheduled_execution_seconds  
+# TYPE tasks_scheduled_execution_seconds summary
+tasks_scheduled_execution_seconds_count{application="infodigest-backend",code_function="scanAndAnalyzeItems",code_namespace="com.infodigest.scheduler.ContentAnalysisScheduler",error="none",exception="none",outcome="SUCCESS",} 33.0
+tasks_scheduled_execution_seconds_sum{application="infodigest-backend",code_function="scanAndAnalyzeItems",code_namespace="com.infodigest.scheduler.ContentAnalysisScheduler",error="none",exception="none",outcome="SUCCESS",} 0.138535259
+tasks_scheduled_execution_seconds_count{application="infodigest-backend",code_function="generatePeriodicData",code_namespace="com.infodigest.scheduler.PeriodicDataGenerationScheduler",error="none",exception="none",outcome="SUCCESS",} 2.0
+tasks_scheduled_execution_seconds_sum{application="infodigest-backend",code_function="generatePeriodicData",code_namespace="com.infodigest.scheduler.PeriodicDataGenerationScheduler",error="none",exception="none",outcome="SUCCESS",} 0.009311784
+tasks_scheduled_execution_seconds_count{application="infodigest-backend",code_function="generateReviewCardsEveryTwoHours",code_namespace="com.infodigest.scheduler.DashboardInsightScheduler",error="none",exception="none",outcome="SUCCESS",} 2.0
+tasks_scheduled_execution_seconds_sum{application="infodigest-backend",code_function="generateReviewCardsEveryTwoHours",code_namespace="com.infodigest.scheduler.DashboardInsightScheduler",error="none",exception="none",outcome="SUCCESS",} 0.008964929
+tasks_scheduled_execution_seconds_count{application="infodigest-backend",code_function="scheduledCrawl",code_namespace="com.infodigest.scheduler.CrawlScheduler",error="none",exception="none",outcome="SUCCESS",} 3.0
+tasks_scheduled_execution_seconds_sum{application="infodigest-backend",code_function="scheduledCrawl",code_namespace="com.infodigest.scheduler.CrawlScheduler",error="none",exception="none",outcome="SUCCESS",} 0.016093233
+# HELP tasks_scheduled_execution_seconds_max  
+# TYPE tasks_scheduled_execution_seconds_max gauge
+tasks_scheduled_execution_seconds_max{application="infodigest-backend",code_function="scanAndAnalyzeItems",code_namespace="com.infodigest.scheduler.ContentAnalysisScheduler",error="none",exception="none",outcome="SUCCESS",} 0.0
+tasks_scheduled_execution_seconds_max{application="infodigest-backend",code_function="generatePeriodicData",code_namespace="com.infodigest.scheduler.PeriodicDataGenerationScheduler",error="none",exception="none",outcome="SUCCESS",} 0.004633046
+tasks_scheduled_execution_seconds_max{application="infodigest-backend",code_function="generateReviewCardsEveryTwoHours",code_namespace="com.infodigest.scheduler.DashboardInsightScheduler",error="none",exception="none",outcome="SUCCESS",} 0.002575254
+tasks_scheduled_execution_seconds_max{application="infodigest-backend",code_function="scheduledCrawl",code_namespace="com.infodigest.scheduler.CrawlScheduler",error="none",exception="none",outcome="SUCCESS",} 0.0
+# HELP spring_security_filterchains_requestcache_before_total  
+# TYPE spring_security_filterchains_requestcache_before_total counter
+spring_security_filterchains_requestcache_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP hikaricp_connections_timeout_total Connection timeout total count
+# TYPE hikaricp_connections_timeout_total counter
+hikaricp_connections_timeout_total{application="infodigest-backend",pool="HikariPool-1",} 0.0
+# HELP spring_security_filterchains_cors_before_total  
+# TYPE spring_security_filterchains_cors_before_total counter
+spring_security_filterchains_cors_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP hikaricp_connections_idle Idle connections
+# TYPE hikaricp_connections_idle gauge
+hikaricp_connections_idle{application="infodigest-backend",pool="HikariPool-1",} 2.0
+# HELP spring_security_filterchains_session_urlencoding_before_total  
+# TYPE spring_security_filterchains_session_urlencoding_before_total counter
+spring_security_filterchains_session_urlencoding_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP spring_security_filterchains_access_exceptions_after_total  
+# TYPE spring_security_filterchains_access_exceptions_after_total counter
+spring_security_filterchains_access_exceptions_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP hikaricp_connections_acquire_seconds Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds summary
+hikaricp_connections_acquire_seconds_count{application="infodigest-backend",pool="HikariPool-1",} 329904.0
+hikaricp_connections_acquire_seconds_sum{application="infodigest-backend",pool="HikariPool-1",} 8637.591214888
+# HELP hikaricp_connections_acquire_seconds_max Connection acquire time
+# TYPE hikaricp_connections_acquire_seconds_max gauge
+hikaricp_connections_acquire_seconds_max{application="infodigest-backend",pool="HikariPool-1",} 1.9964E-4
+# HELP hikaricp_connections_active Active connections
+# TYPE hikaricp_connections_active gauge
+hikaricp_connections_active{application="infodigest-backend",pool="HikariPool-1",} 0.0
+# HELP spring_security_filterchains_context_holder_before_total  
+# TYPE spring_security_filterchains_context_holder_before_total counter
+spring_security_filterchains_context_holder_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge
+system_cpu_count{application="infodigest-backend",} 2.0
+# HELP hikaricp_connections_creation_seconds_max Connection creation time
+# TYPE hikaricp_connections_creation_seconds_max gauge
+hikaricp_connections_creation_seconds_max{application="infodigest-backend",pool="HikariPool-1",} 0.0
+# HELP hikaricp_connections_creation_seconds Connection creation time
+# TYPE hikaricp_connections_creation_seconds summary
+hikaricp_connections_creation_seconds_count{application="infodigest-backend",pool="HikariPool-1",} 28.0
+hikaricp_connections_creation_seconds_sum{application="infodigest-backend",pool="HikariPool-1",} 0.268
+# HELP tomcat_sessions_created_sessions_total  
+# TYPE tomcat_sessions_created_sessions_total counter
+tomcat_sessions_created_sessions_total{application="infodigest-backend",} 0.0
+# HELP process_start_time_seconds Start time of the process since unix epoch.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds{application="infodigest-backend",} 1.79334462062E9
+# HELP tasks_scheduled_execution_active_seconds_max  
+# TYPE tasks_scheduled_execution_active_seconds_max gauge
+tasks_scheduled_execution_active_seconds_max{application="infodigest-backend",code_function="scheduledCrawl",code_namespace="com.infodigest.scheduler.CrawlScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_max{application="infodigest-backend",code_function="generateReviewCardsEveryTwoHours",code_namespace="com.infodigest.scheduler.DashboardInsightScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_max{application="infodigest-backend",code_function="scanAndAnalyzeItems",code_namespace="com.infodigest.scheduler.ContentAnalysisScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_max{application="infodigest-backend",code_function="generatePeriodicData",code_namespace="com.infodigest.scheduler.PeriodicDataGenerationScheduler",exception="none",outcome="UNKNOWN",} 0.0
+# HELP tasks_scheduled_execution_active_seconds  
+# TYPE tasks_scheduled_execution_active_seconds summary
+tasks_scheduled_execution_active_seconds_active_count{application="infodigest-backend",code_function="scheduledCrawl",code_namespace="com.infodigest.scheduler.CrawlScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_duration_sum{application="infodigest-backend",code_function="scheduledCrawl",code_namespace="com.infodigest.scheduler.CrawlScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_active_count{application="infodigest-backend",code_function="generateReviewCardsEveryTwoHours",code_namespace="com.infodigest.scheduler.DashboardInsightScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_duration_sum{application="infodigest-backend",code_function="generateReviewCardsEveryTwoHours",code_namespace="com.infodigest.scheduler.DashboardInsightScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_active_count{application="infodigest-backend",code_function="scanAndAnalyzeItems",code_namespace="com.infodigest.scheduler.ContentAnalysisScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_duration_sum{application="infodigest-backend",code_function="scanAndAnalyzeItems",code_namespace="com.infodigest.scheduler.ContentAnalysisScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_active_count{application="infodigest-backend",code_function="generatePeriodicData",code_namespace="com.infodigest.scheduler.PeriodicDataGenerationScheduler",exception="none",outcome="UNKNOWN",} 0.0
+tasks_scheduled_execution_active_seconds_duration_sum{application="infodigest-backend",code_function="generatePeriodicData",code_namespace="com.infodigest.scheduler.PeriodicDataGenerationScheduler",exception="none",outcome="UNKNOWN",} 0.0
+# HELP spring_security_filterchains_context_servlet_after_total  
+# TYPE spring_security_filterchains_context_servlet_after_total counter
+spring_security_filterchains_context_servlet_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP jvm_threads_peak_threads The peak live thread count since the Java virtual machine started or peak was reset
+# TYPE jvm_threads_peak_threads gauge
+jvm_threads_peak_threads{application="infodigest-backend",} 232.0
+# HELP disk_total_bytes Total space for path
+# TYPE disk_total_bytes gauge
+disk_total_bytes{application="infodigest-backend",path="/srv/lab2/se26-o4/backend/.",} 4.2157305856E10
+# HELP executor_queue_remaining_tasks The number of additional elements that this queue can ideally accept without blocking
+# TYPE executor_queue_remaining_tasks gauge
+executor_queue_remaining_tasks{application="infodigest-backend",name="aiSummaryExecutor",} 500.0
+executor_queue_remaining_tasks{application="infodigest-backend",name="taskScheduler",} 2.147483647E9
+# HELP logback_events_total Number of log events that were enabled by the effective log level
+# TYPE logback_events_total counter
+logback_events_total{application="infodigest-backend",level="warn",} 0.0
+logback_events_total{application="infodigest-backend",level="trace",} 0.0
+logback_events_total{application="infodigest-backend",level="debug",} 0.0
+logback_events_total{application="infodigest-backend",level="error",} 10314.0
+logback_events_total{application="infodigest-backend",level="info",} 21.0
+# HELP hikaricp_connections_min Min connections
+# TYPE hikaricp_connections_min gauge
+hikaricp_connections_min{application="infodigest-backend",pool="HikariPool-1",} 2.0
+# HELP jvm_gc_max_data_size_bytes Max size of long-lived heap memory pool
+# TYPE jvm_gc_max_data_size_bytes gauge
+jvm_gc_max_data_size_bytes{application="infodigest-backend",} 9.26941184E8
+# HELP tomcat_sessions_active_current_sessions  
+# TYPE tomcat_sessions_active_current_sessions gauge
+tomcat_sessions_active_current_sessions{application="infodigest-backend",} 0.0
+# HELP jdbc_connections_active Current number of active connections that have been allocated from the data source.
+# TYPE jdbc_connections_active gauge
+jdbc_connections_active{application="infodigest-backend",name="dataSource",} 0.0
+# HELP application_started_time_seconds Time taken to start the application
+# TYPE application_started_time_seconds gauge
+application_started_time_seconds{application="infodigest-backend",main_application_class="com.infodigest.InfoDigestApplication",} 19.301
+# HELP spring_security_filterchains_cors_after_total  
+# TYPE spring_security_filterchains_cors_after_total counter
+spring_security_filterchains_cors_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP hikaricp_connections Total connections
+# TYPE hikaricp_connections gauge
+hikaricp_connections{application="infodigest-backend",pool="HikariPool-1",} 2.0
+# HELP jvm_memory_used_bytes The amount of used memory
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'non-profiled nmethods'",} 1.2041728E7
+jvm_memory_used_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'non-nmethods'",} 1437696.0
+jvm_memory_used_bytes{application="infodigest-backend",area="nonheap",id="Metaspace",} 1.04120392E8
+jvm_memory_used_bytes{application="infodigest-backend",area="nonheap",id="Compressed Class Space",} 1.3754232E7
+jvm_memory_used_bytes{application="infodigest-backend",area="heap",id="G1 Eden Space",} 1.63577856E8
+jvm_memory_used_bytes{application="infodigest-backend",area="nonheap",id="CodeHeap 'profiled nmethods'",} 2.0810112E7
+jvm_memory_used_bytes{application="infodigest-backend",area="heap",id="G1 Survivor Space",} 1872608.0
+jvm_memory_used_bytes{application="infodigest-backend",area="heap",id="G1 Old Gen",} 1.48696576E8
+# HELP executor_completed_tasks_total The approximate total number of tasks that have completed execution
+# TYPE executor_completed_tasks_total counter
+executor_completed_tasks_total{application="infodigest-backend",name="aiSummaryExecutor",} 0.0
+executor_completed_tasks_total{application="infodigest-backend",name="taskScheduler",} 40.0
+# HELP spring_security_filterchains_seconds_max  
+# TYPE spring_security_filterchains_seconds_max gauge
+spring_security_filterchains_seconds_max{application="infodigest-backend",error="none",security_security_reached_filter_section="after",spring_security_filterchain_position="13",spring_security_filterchain_size="13",spring_security_reached_filter_name="DisableEncodeUrlFilter",} 1.82839E-4
+spring_security_filterchains_seconds_max{application="infodigest-backend",error="ClientAbortException",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 0.0
+spring_security_filterchains_seconds_max{application="infodigest-backend",error="none",security_security_reached_filter_section="before",spring_security_filterchain_position="13",spring_security_filterchain_size="13",spring_security_reached_filter_name="AuthorizationFilter",} 3.39615E-4
+# HELP spring_security_filterchains_seconds  
+# TYPE spring_security_filterchains_seconds summary
+spring_security_filterchains_seconds_count{application="infodigest-backend",error="none",security_security_reached_filter_section="after",spring_security_filterchain_position="13",spring_security_filterchain_size="13",spring_security_reached_filter_name="DisableEncodeUrlFilter",} 339283.0
+spring_security_filterchains_seconds_sum{application="infodigest-backend",error="none",security_security_reached_filter_section="after",spring_security_filterchain_position="13",spring_security_filterchain_size="13",spring_security_reached_filter_name="DisableEncodeUrlFilter",} 47.389456108
+spring_security_filterchains_seconds_count{application="infodigest-backend",error="ClientAbortException",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 10311.0
+spring_security_filterchains_seconds_sum{application="infodigest-backend",error="ClientAbortException",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 3.247698437
+spring_security_filterchains_seconds_count{application="infodigest-backend",error="none",security_security_reached_filter_section="before",spring_security_filterchain_position="13",spring_security_filterchain_size="13",spring_security_reached_filter_name="AuthorizationFilter",} 349595.0
+spring_security_filterchains_seconds_sum{application="infodigest-backend",error="none",security_security_reached_filter_section="before",spring_security_filterchain_position="13",spring_security_filterchain_size="13",spring_security_reached_filter_name="AuthorizationFilter",} 235.780219329
+# HELP spring_security_filterchains_requestcache_after_total  
+# TYPE spring_security_filterchains_requestcache_after_total counter
+spring_security_filterchains_requestcache_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP jvm_threads_started_threads_total The total number of application threads started in the JVM
+# TYPE jvm_threads_started_threads_total counter
+jvm_threads_started_threads_total{application="infodigest-backend",} 409.0
+# HELP executor_pool_max_threads The maximum allowed number of threads in the pool
+# TYPE executor_pool_max_threads gauge
+executor_pool_max_threads{application="infodigest-backend",name="aiSummaryExecutor",} 16.0
+executor_pool_max_threads{application="infodigest-backend",name="taskScheduler",} 2.147483647E9
+# HELP process_files_open_files The open file descriptor count
+# TYPE process_files_open_files gauge
+process_files_open_files{application="infodigest-backend",} 91.0
+# HELP jvm_gc_pause_seconds Time spent in GC pause
+# TYPE jvm_gc_pause_seconds summary
+jvm_gc_pause_seconds_count{action="end of minor GC",application="infodigest-backend",cause="G1 Evacuation Pause",gc="G1 Young Generation",} 255.0
+jvm_gc_pause_seconds_sum{action="end of minor GC",application="infodigest-backend",cause="G1 Evacuation Pause",gc="G1 Young Generation",} 6.698
+# HELP jvm_gc_pause_seconds_max Time spent in GC pause
+# TYPE jvm_gc_pause_seconds_max gauge
+jvm_gc_pause_seconds_max{action="end of minor GC",application="infodigest-backend",cause="G1 Evacuation Pause",gc="G1 Young Generation",} 0.0
+# HELP spring_security_filterchains_session_urlencoding_after_total  
+# TYPE spring_security_filterchains_session_urlencoding_after_total counter
+spring_security_filterchains_session_urlencoding_after_total{application="infodigest-backend",security_security_reached_filter_section="after",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 339283.0
+# HELP jdbc_connections_idle Number of established but idle connections.
+# TYPE jdbc_connections_idle gauge
+jdbc_connections_idle{application="infodigest-backend",name="dataSource",} 2.0
+# HELP http_server_requests_active_seconds_max  
+# TYPE http_server_requests_active_seconds_max gauge
+http_server_requests_active_seconds_max{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",} 0.008706155
+# HELP http_server_requests_active_seconds  
+# TYPE http_server_requests_active_seconds histogram
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="120.0",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="137.438953471",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="160.345445716",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="183.251937961",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="206.158430206",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="229.064922451",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="251.971414696",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="274.877906944",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="366.503875925",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="458.129844906",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="549.755813887",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="641.381782868",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="733.007751849",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="824.63372083",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="916.259689811",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1007.885658792",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1099.511627776",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1466.015503701",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="1832.519379626",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2199.023255551",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2565.527131476",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="2932.031007401",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="3298.534883326",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="3665.038759251",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="4031.542635176",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="4398.046511104",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="5864.062014805",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="7200.0",} 7.0
+http_server_requests_active_seconds_bucket{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",le="+Inf",} 1.0
+http_server_requests_active_seconds_active_count{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",} 1.0
+http_server_requests_active_seconds_duration_sum{application="infodigest-backend",exception="none",method="GET",outcome="SUCCESS",status="200",uri="UNKNOWN",} 0.008700376
+# HELP jvm_threads_live_threads The current number of live threads including both daemon and non-daemon threads
+# TYPE jvm_threads_live_threads gauge
+jvm_threads_live_threads{application="infodigest-backend",} 90.0
+# HELP spring_security_authorizations_seconds  
+# TYPE spring_security_authorizations_seconds summary
+spring_security_authorizations_seconds_count{application="infodigest-backend",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request",} 339733.0
+spring_security_authorizations_seconds_sum{application="infodigest-backend",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request",} 136.233704438
+spring_security_authorizations_seconds_count{application="infodigest-backend",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request",} 9862.0
+spring_security_authorizations_seconds_sum{application="infodigest-backend",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request",} 0.983144357
+# HELP spring_security_authorizations_seconds_max  
+# TYPE spring_security_authorizations_seconds_max gauge
+spring_security_authorizations_seconds_max{application="infodigest-backend",error="none",spring_security_authentication_type="n/a",spring_security_authorization_decision="true",spring_security_object="request",} 3.7375E-5
+spring_security_authorizations_seconds_max{application="infodigest-backend",error="AccessDeniedException",spring_security_authentication_type="AnonymousAuthenticationToken",spring_security_authorization_decision="false",spring_security_object="request",} 1.72991E-4
+# HELP process_files_max_files The maximum file descriptor count
+# TYPE process_files_max_files gauge
+process_files_max_files{application="infodigest-backend",} 65535.0
+# HELP executor_queued_tasks The approximate number of tasks that are queued for execution
+# TYPE executor_queued_tasks gauge
+executor_queued_tasks{application="infodigest-backend",name="aiSummaryExecutor",} 0.0
+executor_queued_tasks{application="infodigest-backend",name="taskScheduler",} 8.0
+# HELP spring_security_filterchains_context_async_before_total  
+# TYPE spring_security_filterchains_context_async_before_total counter
+spring_security_filterchains_context_async_before_total{application="infodigest-backend",security_security_reached_filter_section="before",spring_security_filterchain_position="0",spring_security_filterchain_size="0",spring_security_reached_filter_name="none",} 349595.0

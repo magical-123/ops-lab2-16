@@ -1,0 +1,10 @@
+O4 压测环境（InfoDigest 后端）
+后端: InfoDigest Spring Boot 3.2.3 (Java 17)，分支 codex/o4-backend-preparation @ 6060c65
+端点: GET /api/health/db（真实 SELECT 1，走 HikariCP）
+数据库: MySQL 8（127.0.0.1:3306/infodigest），连接池 maximum-pool-size=10
+Redis: 127.0.0.1:6379
+主机: lab2-16，nproc=2，内核 6.8.0-136-generic
+埋点: Actuator + Micrometer + Prometheus，/actuator/prometheus 免鉴权
+压测工具: bin/loadgen（开环，poisson 到达，超时 2s，GOMAXPROCS=2）
+压测命令: bin/loadgen -url http://127.0.0.1:8080/api/health/db -rates 2000,2500,3000,3500,4000 -step 30s -out /tmp/o4-steps2.csv
+后端进程: java -jar target/backend-0.0.1-SNAPSHOT.jar（pid 1152408）
