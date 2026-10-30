@@ -1,0 +1,38 @@
+{
+  "description": "Post-measurement provenance for the user's completed O1 runs; not a pre-measurement environment snapshot.",
+  "analysis_date_local": "2026-10-30",
+  "timezone": "Asia/Shanghai",
+  "measurement_date_local": "2026-10-29",
+  "source_directory": "/srv/lab2",
+  "source_head_at_collection": "e1b6ed2a8f4924003b0a93e42e2b337fe5b6341f",
+  "source_revision_recorded_in_run_meta": "dab739e",
+  "prediction_commit": "e925c69db91e02cab504b19d39ef71425a34c3a8",
+  "prediction_commit_date": "2026-10-28T00:02:59+08:00",
+  "prediction_is_ancestor_of_measurement_revision": true,
+  "transport_archive_sha256": "a8d4d18e6e68ef4948078d36be182567c6fefa33c06bee518a27072c86ec978a",
+  "transport_archive_note": "Archive digest matched on the source host and receiving machine before extraction; archive itself is not committed.",
+  "original_directories": [
+    "runs/o1-100-warmup",
+    "runs/o1-400-warmup",
+    "runs/o1-gogc100",
+    "runs/o1-gogc400"
+  ],
+  "metrics_file_completion_times_from_source_host": {
+    "o1-gogc100": {
+      "start": "2026-10-29T22:25:18.761445806+08:00",
+      "end": "2026-10-29T22:26:19.782159873+08:00",
+      "completion_time_difference_s": "61.020714067"
+    },
+    "o1-gogc400": {
+      "start": "2026-10-29T22:29:37.878476911+08:00",
+      "end": "2026-10-29T22:30:38.899189564+08:00",
+      "completion_time_difference_s": "61.020712653"
+    }
+  },
+  "limits": [
+    "File completion timestamps are not atomic metric acquisition timestamps.",
+    "Each GOGC condition has one measured run; no ABBAAB repetition was performed.",
+    "Run meta records 5 and 7 uncommitted worktree changes; a complete measurement-time environment and binary hash snapshot is unavailable.",
+    "RSS range-query values retain evaluation timestamps, not original scrape timestamps."
+  ]
+}

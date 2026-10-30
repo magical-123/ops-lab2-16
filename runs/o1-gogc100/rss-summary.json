@@ -1,0 +1,8 @@
+{
+  "gogc": 100,
+  "start_unix": 1793283923,
+  "end_unix": 1793283978,
+  "samples": 56,
+  "rss_mean_mib": 11.283621651785714,
+  "rss_peak_mib": 13.70703125
+}
