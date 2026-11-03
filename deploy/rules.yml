@@ -1,10 +1,23 @@
+# 燃烧率告警规则 - 用于 O3 选做
+# 参考 L-08 第 21 页：多窗口燃烧率告警
+
 groups:
-  - name: enrolld-slo
+  - name: enrolld-slo                    # 规则组名称
     rules:
-      - alert: EnrolldReadSLOFastBurn
-        expr: (sum(rate(http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.05"}[5m])) / sum(rate(http_requests_total{route="/api/courses/{id}"}[5m]))) < 0.856
-        for: 2m
+      - alert: EnrolldReadSLOFastBurn    # 告警名称：读路径 SLO 快速燃烧
+        # 表达式解释：
+        #   分子：5 分钟内 code=200 且延迟 ≤ 50ms 的请求数
+        #   分母：5 分钟内所有请求数
+        #   结果：SLI 达标率（0~1）
+        #   阈值：< 0.856 即 < 1 - 14.4 * 0.01
+        #         当燃烧率 > 14.4 倍时触发（30 天预算 2 天耗尽）
+        expr: |
+          (sum(rate(http_request_duration_seconds_bucket{route="/api/courses/{id}",code="200",le="0.05"}[5m]))
+          / sum(rate(http_requests_total{route="/api/courses/{id}"}[5m])))
+          < 0.856
+        for: 2m                          # 持续 2 分钟才触发，避免瞬时波动误报
         labels:
-          severity: critical
+          severity: critical             # 严重级别：critical（需立即处理）
         annotations:
           summary: Read path SLO burn rate exceeds 14.4x
+          # 说明：读路径 SLO 燃烧率超过 14.4 倍，按此速度 30 天预算将在 2 天内耗尽
